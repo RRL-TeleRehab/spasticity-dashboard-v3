@@ -1,10 +1,11 @@
 {
   "version": 2,
-  "dgSpecHash": "DHOaKKzo701NXAWxJ3zn00zgeE04AHCIiMlWMRYccZgJbY4SvV21c6HZaYJH0pMyAIFygV81R+KJEFPSK6BF1A==",
+  "dgSpecHash": "69BHU9Ler4Qb51jnwmhDivY6hlhkNox6wKG73MiBCfFmQgabqDCGv3srUhZ/MdkxHxoHk4KeXATh9ohR8sT32w==",
   "success": true,
   "projectFilePath": "C:\\Users\\stonx\\Documents\\GitHub\\SpasticityClientV2\\SpasticityClientV2.csproj",
   "expectedPackageFiles": [
     "C:\\Users\\stonx\\.nuget\\packages\\devexpress.data\\22.1.5\\devexpress.data.22.1.5.nupkg.sha512",
+    "C:\\Users\\stonx\\.nuget\\packages\\devexpress.data.de\\22.1.5\\devexpress.data.de.22.1.5.nupkg.sha512",
     "C:\\Users\\stonx\\.nuget\\packages\\harfbuzzsharp\\2.8.2.1\\harfbuzzsharp.2.8.2.1.nupkg.sha512",
     "C:\\Users\\stonx\\.nuget\\packages\\harfbuzzsharp.nativeassets.macos\\2.8.2.1\\harfbuzzsharp.nativeassets.macos.2.8.2.1.nupkg.sha512",
     "C:\\Users\\stonx\\.nuget\\packages\\harfbuzzsharp.nativeassets.win32\\2.8.2.1\\harfbuzzsharp.nativeassets.win32.2.8.2.1.nupkg.sha512",

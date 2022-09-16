@@ -20,6 +20,17 @@
           "lib/netstandard2.0/DevExpress.Data.v22.1.dll": {}
         }
       },
+      "DevExpress.Data.de/22.1.5": {
+        "type": "package",
+        "dependencies": {
+          "DevExpress.Data": "[22.1.5]"
+        },
+        "resource": {
+          "lib/netstandard2.0/de/DevExpress.Data.v22.1.resources.dll": {
+            "locale": "de"
+          }
+        }
+      },
       "HarfBuzzSharp/2.8.2.1": {
         "type": "package",
         "dependencies": {
@@ -663,6 +674,19 @@
         "lib/net452/DevExpress.Data.v22.1.xml",
         "lib/netstandard2.0/DevExpress.Data.v22.1.dll",
         "lib/netstandard2.0/DevExpress.Data.v22.1.xml"
+      ]
+    },
+    "DevExpress.Data.de/22.1.5": {
+      "sha512": "2qPpV8EhMbl7l0/xAmAsUx23EdMSrVEZu+/oP3ufDBglS6W3j3BKIjLMfFeoFFdBXHw2hMVSXAxa0jy+4g2fTg==",
+      "type": "package",
+      "path": "devexpress.data.de/22.1.5",
+      "files": [
+        ".nupkg.metadata",
+        ".signature.p7s",
+        "devexpress.data.de.22.1.5.nupkg.sha512",
+        "devexpress.data.de.nuspec",
+        "lib/net452/de/DevExpress.Data.v22.1.resources.dll",
+        "lib/netstandard2.0/de/DevExpress.Data.v22.1.resources.dll"
       ]
     },
     "HarfBuzzSharp/2.8.2.1": {
@@ -2419,6 +2443,7 @@
   "projectFileDependencyGroups": {
     "net6.0-windows7.0": [
       "DevExpress.Data >= 22.1.5",
+      "DevExpress.Data.de >= 22.1.5",
       "LiveChartsCore.SkiaSharpView.WinForms >= 2.0.0-beta.400",
       "Prism.Core >= 8.1.97",
       "Syncfusion.Licensing >= 20.2.0.44",
@@ -2472,6 +2497,10 @@
         "targetAlias": "net6.0-windows",
         "dependencies": {
           "DevExpress.Data": {
+            "target": "Package",
+            "version": "[22.1.5, )"
+          },
+          "DevExpress.Data.de": {
             "target": "Package",
             "version": "[22.1.5, )"
           },

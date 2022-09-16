@@ -176,22 +176,22 @@ namespace SpasticityClientV2
                                     #endregion
 
                                     #region Send data to chart model
-                                    if (chartModel.EMGValues.Count > keepRecords)
-                                    {
-                                        chartModel.EMGValues.RemoveAt(0);
-                                        chartModel.AngleValues.RemoveAt(0);
-                                        chartModel.AngularVelocityValues.RemoveAt(0);
-                                        chartModel.ForceValues.RemoveAt(0);
-                                    }
+                                    //if (chartModel.EMGValues.Count > keepRecords)
+                                    //{
+                                    //    chartModel.EMGValues.RemoveAt(0);
+                                    //    chartModel.AngleValues.RemoveAt(0);
+                                    //    chartModel.AngularVelocityValues.RemoveAt(0);
+                                    //    chartModel.ForceValues.RemoveAt(0);
+                                    //}
 
                                     //var nowticks = DateTime.Now;
 
-                                    chartModel.EMGValues.Add(new MeasureModel { DateTime = nowticks, Value = emg });
-                                    chartModel.ForceValues.Add(new MeasureModel { DateTime = nowticks, Value = forceDiff });
-                                    chartModel.AngleValues.Add(new MeasureModel { DateTime = nowticks, Value = angle });
-                                    chartModel.AngularVelocityValues.Add(new MeasureModel { DateTime = nowticks, Value = angVel });
+                                    //chartModel.EMGValues.Add(new MeasureModel { DateTime = nowticks, Value = emg });
+                                    //chartModel.ForceValues.Add(new MeasureModel { DateTime = nowticks, Value = forceDiff });
+                                    //chartModel.AngleValues.Add(new MeasureModel { DateTime = nowticks, Value = angle });
+                                    //chartModel.AngularVelocityValues.Add(new MeasureModel { DateTime = nowticks, Value = angVel });
 
-                                    chartModel.SetAxisLimits(nowticks);
+                                    //chartModel.SetAxisLimits(nowticks);
                                     #endregion
 
                                     #region Send data to Excel collection

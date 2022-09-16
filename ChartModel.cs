@@ -1,10 +1,6 @@
 using System.IO.Ports;
-
 using System.Threading.Tasks;
 using System.Windows.Forms;
-using LiveChartsCore.SkiaSharpView.WinForms;
-using LiveChartsCore;
-using Prism.Commands;
 using Syncfusion.XlsIO;
 using System;
 using System.Collections.Generic;
@@ -15,92 +11,272 @@ using System.Linq;
 using System.Runtime.CompilerServices;
 using System.Text;
 using System.Threading.Tasks;
-
+using System.Collections.ObjectModel;
+using System.Threading;
+using System.Data;
 
 namespace SpasticityClientV2
 {
-    public partial class ChartModel : Form, IDisposable
+    public partial class ChartModel : Form
     {
-        private double _min;
-        private double _max;
-        private XBeeData _xbeeData;
         private bool IsCancelled = false;
+
         private int keepRecords = 100;
-
-        #region properties
-
         public bool IsRunning { get; set; }
-
-        public BindingList<MeasureModel> EMGValues { get; set; }
-        public BindingList<MeasureModel> ForceValues { get; set; }
-        public BindingList<MeasureModel> AngleValues { get; set; }
-        public BindingList<MeasureModel> AngularVelocityValues { get; set; }
-
         public List<SessionData> SessionDatas { get; set; }
 
-        public Func<double, string> DateTimeFormatter { get; set; }
-        public double AxisStep { get; set; }
-        public double AxisUnit { get; set; }
-        public double Min { get; set; }
-        public double Max { get; set; }
-        public string PortName { get; set; }
-        #endregion
+        const int myWidth = 1800; // width of graphs
+        const int perfScale = 1;
+        const int perfWidth = myWidth / perfScale;
+
+        Bitmap ForceA = new Bitmap(myWidth, 300);
+        Bitmap EMGA = new Bitmap(myWidth, 300);
+        Bitmap AngleA = new Bitmap(myWidth, 300);
+        Bitmap ForceB = new Bitmap(myWidth, 300);
+        Bitmap EMGB = new Bitmap(myWidth, 300);
+        Bitmap AngleB = new Bitmap(myWidth, 300);
+
+        Graphics ForceImageA;
+        Graphics EMGImageA;
+        Graphics AngleImageA;
+        Graphics ForceImageB;
+        Graphics EMGImageB;
+        Graphics AngleImageB;
+
+        Pen ForcePen = new Pen(System.Drawing.Color.Black, 2); // width 3
+        Pen EMGPen = new Pen(System.Drawing.Color.Green, 3);
+        Pen AnglePen = new Pen(System.Drawing.Color.Red, 3);
+        Pen graticule = new Pen(System.Drawing.Color.Gray, 1);
+
+        Rectangle eraseRectangle = new Rectangle(0, 0, 100, 100);
+
+        int forceWrIndex = 0;
+        int forceRdIndex = 0;
+
+        int perfNumber;
+
+        const int perfIndexMax = 1800; // 4096 samples
+        const int dataIndexMax = perfIndexMax;
+
+        int[] forceArray = new int[dataIndexMax];  
+        int[] emgArray = new int[dataIndexMax];    
+        int[] angleArray = new int[dataIndexMax];
+
+        void RedrawForceGraphA()
+        {
+            int i;
+            Point A = new Point(0, 0);
+            Point B = new Point(0, 0);
+
+            ForceImageA.FillRectangle(Brushes.White, eraseRectangle);
+
+            A.X = 0;
+            B.X = myWidth;
+            // Draw 0mmHg line
+            A.Y = 300;
+            B.Y = 300;
+            ForceImageA.DrawLine(graticule, A, B);
+           
+            // Draw Vertical lines for 30 seconds intervals
+            A.Y = 0;
+            B.Y = 299;
+            for (i = 1; i < 6; i++)
+            {
+                A.X = i * 300;
+                B.X = A.X;
+                ForceImageA.DrawLine(graticule, A, B);
+            }
+        }
+
+        void RedrawForceGraphB()
+        {
+            int i;
+            Point A = new Point(0, 0);
+            Point B = new Point(0, 0);
+
+            ForceImageB.FillRectangle(Brushes.White, eraseRectangle);
+
+            A.X = 0;
+            B.X = myWidth;
+            // Draw 0mmHg line
+            A.Y = 300;
+            B.Y = 300;
+            ForceImageB.DrawLine(graticule, A, B);
+
+            // Draw Vertical lines for 30 seconds intervals
+            A.Y = 0;
+            B.Y = 299;
+            for (i = 1; i < 6; i++)
+            {
+                A.X = i * 300;
+                B.X = A.X;
+                ForceImageB.DrawLine(graticule, A, B);
+            }
+        }
+
+        void RedrawEMGGraphA()
+        {
+            int i;
+            Point A = new Point(0, 0);
+            Point B = new Point(0, 0);
+
+            EMGImageA.FillRectangle(Brushes.White, eraseRectangle);
+
+            A.X = 0;
+            B.X = myWidth;
+            // Draw 0mmHg line
+            A.Y = 300;
+            B.Y = 300;
+            EMGImageA.DrawLine(graticule, A, B);
+
+            // Draw Vertical lines for 30 seconds intervals
+            A.Y = 0;
+            B.Y = 299;
+            for (i = 1; i < 6; i++)
+            {
+                A.X = i * 300;
+                B.X = A.X;
+                EMGImageA.DrawLine(graticule, A, B);
+            }
+        }
+
+        void RedrawEMGGraphB()
+        {
+            int i;
+            Point A = new Point(0, 0);
+            Point B = new Point(0, 0);
+
+            EMGImageB.FillRectangle(Brushes.White, eraseRectangle);
+
+            A.X = 0;
+            B.X = myWidth;
+            // Draw 0mmHg line
+            A.Y = 300;
+            B.Y = 300;
+            EMGImageB.DrawLine(graticule, A, B);
+
+            // Draw Vertical lines for 30 seconds intervals
+            A.Y = 0;
+            B.Y = 299;
+            for (i = 1; i < 6; i++)
+            {
+                A.X = i * 300;
+                B.X = A.X;
+                EMGImageB.DrawLine(graticule, A, B);
+            }
+        }
+
+        void RedrawAngleGraphA()
+        {
+            int i;
+            Point A = new Point(0, 0);
+            Point B = new Point(0, 0);
+
+            AngleImageA.FillRectangle(Brushes.White, eraseRectangle);
+
+            A.X = 0;
+            B.X = myWidth;
+            // Draw 0mmHg line
+            A.Y = 300;
+            B.Y = 300;
+            AngleImageA.DrawLine(graticule, A, B);
+
+            // Draw Vertical lines for 30 seconds intervals
+            A.Y = 0;
+            B.Y = 299;
+            for (i = 1; i < 6; i++)
+            {
+                A.X = i * 300;
+                B.X = A.X;
+                AngleImageA.DrawLine(graticule, A, B);
+            }
+        }
+
+        void RedrawAngleGraphB()
+        {
+            int i;
+            Point A = new Point(0, 0);
+            Point B = new Point(0, 0);
+
+            AngleImageB.FillRectangle(Brushes.White, eraseRectangle);
+
+            A.X = 0;
+            B.X = myWidth;
+            // Draw 0mmHg line
+            A.Y = 300;
+            B.Y = 300;
+            AngleImageB.DrawLine(graticule, A, B);
+
+            // Draw Vertical lines for 30 seconds intervals
+            A.Y = 0;
+            B.Y = 299;
+            for (i = 1; i < 6; i++)
+            {
+                A.X = i * 300;
+                B.X = A.X;
+                AngleImageB.DrawLine(graticule, A, B);
+            }
+        }
 
         public ChartModel()
         {
+            int i;
+            Point A = new Point(0, 0);
+            Point B = new Point(0, 0);
+
             InitializeComponent();
-            IsRunning = false;
 
-            //the values property will store our values array
-            EMGValues = new BindingList<MeasureModel>();
-            ForceValues = new BindingList<MeasureModel>();
-            AngleValues = new BindingList<MeasureModel>();
-            AngularVelocityValues = new BindingList<MeasureModel>();
+            // Initialize data arrays
+            for (i = 0; i < dataIndexMax; i++)
+            {
+                forceArray[i] = 0;
+                emgArray[i] = 0;
+                angleArray[i] = 0;
+            }
 
-            SessionDatas = new List<SessionData>();
+            ForceImageA = Graphics.FromImage(ForceA);
+            EMGImageA = Graphics.FromImage(EMGA);  
+            AngleImageA = Graphics.FromImage(AngleA);
+            ForceImageB = Graphics.FromImage(ForceB);
+            EMGImageB = Graphics.FromImage(EMGB);
+            AngleImageB = Graphics.FromImage(AngleB);
 
-            //lets set how to display the X Labels
-            DateTimeFormatter = value => new DateTime((long)value).ToString("mm:ss");
+            eraseRectangle.Width = ForceA.Width - 1;
+            eraseRectangle.Height = ForceA.Height - 1;
 
-            //AxisStep forces the distance between each separator in the X axis
+            RedrawForceGraphA();
+            RedrawEMGGraphA();
+            RedrawAngleGraphA();
+            pictureBox1.Image = ForceA;
+            pictureBox2.Image = EMGA;
+            pictureBox3.Image = AngleA;
 
-            AxisStep = TimeSpan.FromSeconds(1).Ticks;
-
-            //AxisUnit forces lets the axis know that we are plotting seconds
-            //this is not always necessary, but it can prevent wrong labeling
-            AxisUnit = TimeSpan.TicksPerSecond;
-
-            SetAxisLimits(DateTime.Now);
+            forceWrIndex = 0;
+            forceRdIndex = 0;
         }
 
         public void getAvailablePorts()
         {
             string[] ports = SerialPort.GetPortNames();
-            comboBox1.Items.AddRange(ports);
+            comboBox2.Items.AddRange(ports);
         }
-        private void button1_Click(object sender, EventArgs e)
+        private void button3_Click(object sender, EventArgs e)
         {
             string[] ports = SerialPort.GetPortNames();
-            comboBox1.Items.AddRange(ports);
+            comboBox2.Items.AddRange(ports);
         }
-        private void cartesianChart1_Load(object sender, EventArgs e)
+        private void button4_Click(object sender, EventArgs e)
         {
-        }
-        private void button2_Click(object sender, EventArgs e)
-        {
-            if (comboBox1.SelectedIndex > -1)
+            if (comboBox2.SelectedIndex > -1)
             {
-                MessageBox.Show(String.Format("You selected port '{0}'", comboBox1.SelectedItem));
-                Connect(comboBox1.SelectedItem.ToString());
+                MessageBox.Show(String.Format("You selected port '{0}'", comboBox2.SelectedItem));
+                Connect(comboBox2.SelectedItem.ToString());
+                timer1.Start();
             }
             else
             {
                 MessageBox.Show("Please select a port first");
             }
-        }
-        private void serialData_TextChanged(object sender, EventArgs e)
-        {
-
         }
         private void Connect(string portName)
         {
@@ -121,11 +297,9 @@ namespace SpasticityClientV2
         {
 
         }
-
         private void serialDataRecievedEventHandler (object sender, SerialDataReceivedEventArgs e)
         {
             SerialPort sData = sender as SerialPort;
-            //string recvData = sData.ReadLine();
 
             try
             {
@@ -143,10 +317,7 @@ namespace SpasticityClientV2
                 float initialForce = 0;
 
                 var counter = 1;
-                var loopIndex = 1;
-                int angleBufferSize = 10;
-                List<float> angleArray = new List<float>();
-                List<float> angVelArray = new List<float>();
+                var loopIndex = 0;
                 List<float> forceCalArray = new List<float>();
                 //var nowstart = DateTime.Now;
 
@@ -157,7 +328,7 @@ namespace SpasticityClientV2
                     var totalbytes = sData.BytesToRead;
                     Thread.Sleep(30);
 
-                    if (loopIndex == 1) { var nowstart = DateTime.Now; };
+                    if (loopIndex == 0) { var nowstart = DateTime.Now; };
                     if (totalbytes > 0)
                     {
                         //Load all the serial data to buffer
@@ -220,48 +391,37 @@ namespace SpasticityClientV2
                                     float angle = (int)((POTANGLEMSB & 0xFF) << 8 | (POTANGLELSB & 0xFF));
 
                                     string forceString = force.ToString();
-                                    serialData.Invoke((MethodInvoker)delegate { serialData.AppendText(forceString); });
+                                    //serialData.Invoke((MethodInvoker)delegate { serialData.AppendText(forceString); });
 
+                                    forceArray[loopIndex] = (int)force;
+                                    emgArray[loopIndex] = (int)emg;
+                                    angleArray[loopIndex] = (int)angle;
 
-                                    //#region Calibrate out starting force bias 
-                                    //if (counter < 20)
-                                    //{
-                                    //    forceCalArray.Add(force);
-                                    //}
-                                    //initialForce = forceCalArray.Min();
-                                    //forceDiff = force - initialForce;
-                                    //#endregion
+                                    forceWrIndex = (forceWrIndex + 1) & (dataIndexMax - 1);  // increment Cuff Write Index
 
-                                    if (EMGValues.Count > keepRecords)
+                                    #region Calibrate out starting force bias 
+                                    if (counter < 20)
                                     {
-                                        EMGValues.RemoveAt(0);
-                                        AngleValues.RemoveAt(0);
-                                        AngularVelocityValues.RemoveAt(0);
-                                        ForceValues.RemoveAt(0);
+                                        forceCalArray.Add(force);
                                     }
-
-                                    //var nowticks = DateTime.Now;
-
-                                    EMGValues.Add(new MeasureModel { DateTime = nowticks, Value = emg });
-                                    ForceValues.Add(new MeasureModel { DateTime = nowticks, Value = forceDiff });
-                                    AngleValues.Add(new MeasureModel { DateTime = nowticks, Value = angle });
-                                    AngularVelocityValues.Add(new MeasureModel { DateTime = nowticks, Value = angVel });
-
-                                    SetAxisLimits(nowticks);
+                                    initialForce = forceCalArray.Min();
+                                    forceDiff = force - initialForce;
+                                    #endregion
 
                                     #region Send data to Excel collection
-                                    SessionDatas.Add(new SessionData
-                                    {
-                                        TimeStamp = (long)elapsedTime,
-                                        Angle_deg = angle,
-                                        AngVel_degpersec = angVel,
-                                        EMG_mV = emg,
-                                        Force_N = forceDiff
-                                    }); ;
-
+                                    //SessionDatas.Add(new SessionData
+                                    //{
+                                    //    TimeStamp = (long)elapsedTime,
+                                    //    Angle_deg = angle,
+                                    //    AngVel_degpersec = angVel,
+                                    //    EMG_mV = emg,
+                                    //    Force_N = forceDiff
+                                    //}); ;
+                                    #endregion
 
                                     counter++;
                                     loopIndex++;
+                                    //forceWrIndex++;
                                     Thread.Sleep(30);
                                 }
                             }
@@ -274,7 +434,6 @@ namespace SpasticityClientV2
                 Dispose();
             }
         }
-
         public void SaveData()
         {
             if (!IsRunning)
@@ -605,24 +764,74 @@ namespace SpasticityClientV2
             }
         }
 
-        public void Dispose()
+        private void timer1_Tick_1(object sender, EventArgs e)
         {
-            _xbeeData.IsCancelled = true;
-            _xbeeData.Stop();
-            EMGValues.Clear();
-            ForceValues.Clear();
-            AngleValues.Clear();
-            AngularVelocityValues.Clear();
-            IsRunning = false;
-        }
+            int i, number, length;
+            int imageIndex;
+            Point A = new Point(0, 0);
+            Point B = new Point(0, 300);
 
-        public void SetAxisLimits(DateTime now)
-        {
-            Max = now.Ticks + TimeSpan.FromSeconds(0.3).Ticks; // lets force the axis to be 1 second ahead
-            Min = now.Ticks - TimeSpan.FromSeconds(1.5).Ticks; // and 8 seconds behind
+
+            // update cuff graphics
+            if (forceWrIndex != forceRdIndex)
+            {
+                if (forceWrIndex % 2 == 0)
+                {// ReDraw Graphs A
+                    RedrawForceGraphA();
+                    RedrawEMGGraphA();
+                    RedrawAngleGraphA();
+
+                    // set up first point
+                    imageIndex = (forceWrIndex + (dataIndexMax - myWidth)) & (dataIndexMax - 1);
+                    A.X = 0;
+                    A.Y = 300 - angleArray[imageIndex];
+                    //above used to be force
+                    for (i = 1; i < myWidth; i++)
+                    {
+                        imageIndex = (imageIndex + 1) & (dataIndexMax - 1);
+                        B.X = i;
+                        B.Y = 300 - angleArray[imageIndex];
+                        //used to be forcearray above
+                        ForceImageA.DrawLine(ForcePen, A, B);
+                        EMGImageA.DrawLine(EMGPen, A, B);
+                        AngleImageA.DrawLine(AnglePen, A, B);
+                        A.X = B.X;
+                        A.Y = B.Y;
+                    }
+                    pictureBox1.Image = ForceA;
+                    pictureBox2.Image = EMGA;
+                    pictureBox3.Image = AngleA;
+                }
+                else
+                {// Redraw Graphs B
+                    RedrawForceGraphB();
+                    RedrawEMGGraphB();
+                    RedrawAngleGraphB();
+
+                    // set up first point
+                    imageIndex = (forceWrIndex + (dataIndexMax - myWidth)) & (dataIndexMax - 1);
+                    A.X = 0;
+                    A.Y = 300 - angleArray[imageIndex];
+                    //used to be force above
+                    for (i = 1; i < myWidth; i++)
+                    {
+                        imageIndex = (imageIndex + 1) & (dataIndexMax - 1);
+                        B.X = i;
+                        B.Y = 300 - angleArray[imageIndex];
+                        //same here
+                        ForceImageB.DrawLine(ForcePen, A, B);
+                        EMGImageB.DrawLine(EMGPen, A, B);
+                        AngleImageB.DrawLine(AnglePen, A, B);
+                        A.X = B.X;
+                        A.Y = B.Y;
+                    }
+                    pictureBox1.Image = ForceB;
+                    pictureBox2.Image = EMGB;
+                    pictureBox3.Image = AngleB;
+                }
+                forceRdIndex = (forceRdIndex + 1) & (dataIndexMax - 1);  // increment cuff pressure index
+            }
         }
     }
 }
 
-
-#endregion

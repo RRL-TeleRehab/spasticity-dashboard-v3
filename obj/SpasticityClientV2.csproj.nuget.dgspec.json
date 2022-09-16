@@ -48,6 +48,10 @@
               "target": "Package",
               "version": "[22.1.5, )"
             },
+            "DevExpress.Data.de": {
+              "target": "Package",
+              "version": "[22.1.5, )"
+            },
             "LiveChartsCore.SkiaSharpView.WinForms": {
               "target": "Package",
               "version": "[2.0.0-beta.400, )"

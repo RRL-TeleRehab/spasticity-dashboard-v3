@@ -23,6 +23,16 @@
           }
         }
       },
+      "DevExpress.Data.de/22.1.5": {
+        "dependencies": {
+          "DevExpress.Data": "22.1.5"
+        },
+        "resources": {
+          "lib/netstandard2.0/de/DevExpress.Data.v22.1.resources.dll": {
+            "locale": "de"
+          }
+        }
+      },
       "HarfBuzzSharp/2.8.2.1": {
         "dependencies": {
           "HarfBuzzSharp.NativeAssets.Win32": "2.8.2.1",
@@ -570,6 +580,13 @@
       "sha512": "sha512-iMZpS4BvOR1HvbjOSyKh16XN0AgTOeCknQWRyxfCK13Pz7hmUXDlZq3InkB7auPOnkia09YU5eDY1Ph7UMgMwg==",
       "path": "devexpress.data/22.1.5",
       "hashPath": "devexpress.data.22.1.5.nupkg.sha512"
+    },
+    "DevExpress.Data.de/22.1.5": {
+      "type": "package",
+      "serviceable": true,
+      "sha512": "sha512-2qPpV8EhMbl7l0/xAmAsUx23EdMSrVEZu+/oP3ufDBglS6W3j3BKIjLMfFeoFFdBXHw2hMVSXAxa0jy+4g2fTg==",
+      "path": "devexpress.data.de/22.1.5",
+      "hashPath": "devexpress.data.de.22.1.5.nupkg.sha512"
     },
     "HarfBuzzSharp/2.8.2.1": {
       "type": "package",

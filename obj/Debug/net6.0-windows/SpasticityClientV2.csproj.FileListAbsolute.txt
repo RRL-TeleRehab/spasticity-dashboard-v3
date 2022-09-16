@@ -48,3 +48,6 @@ C:\Users\stonx\Documents\GitHub\SpasticityClientV2\bin\Debug\net6.0-windows\runt
 C:\Users\stonx\Documents\GitHub\SpasticityClientV2\bin\Debug\net6.0-windows\runtimes\unix\lib\net6.0\System.IO.Ports.dll
 C:\Users\stonx\Documents\GitHub\SpasticityClientV2\bin\Debug\net6.0-windows\runtimes\win\lib\net6.0\System.IO.Ports.dll
 C:\Users\stonx\Documents\GitHub\SpasticityClientV2\obj\Debug\net6.0-windows\SpasticityClientV2.ChartModel.resources
+C:\Users\stonx\Documents\GitHub\SpasticityClientV2\bin\Debug\net6.0-windows\DevExpress.Data.v22.1.dll
+C:\Users\stonx\Documents\GitHub\SpasticityClientV2\bin\Debug\net6.0-windows\de\DevExpress.Data.v22.1.resources.dll
+C:\Users\stonx\Documents\GitHub\SpasticityClientV2\obj\Debug\net6.0-windows\SpasticityClientV2.Properties.Resources.resources
