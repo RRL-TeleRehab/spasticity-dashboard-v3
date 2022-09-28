@@ -14,18 +14,21 @@
         "outputPath": "C:\\Users\\stonx\\Documents\\GitHub\\SpasticityClientV2\\obj\\",
         "projectStyle": "PackageReference",
         "fallbackFolders": [
-          "C:\\Program Files (x86)\\Microsoft Visual Studio\\Shared\\NuGetPackages"
+          "C:\\Program Files (x86)\\Microsoft Visual Studio\\Shared\\NuGetPackages",
+          "C:\\Users\\stonx\\Documents\\NugetPackage\\nevrondotnetvision"
         ],
         "configFilePaths": [
           "C:\\Users\\stonx\\AppData\\Roaming\\NuGet\\NuGet.Config",
           "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.FallbackLocation.config",
-          "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.Offline.config"
+          "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.Offline.config",
+          "C:\\Program Files (x86)\\NuGet\\Config\\NevronDotNetVision.22.4.12.12.config"
         ],
         "originalTargetFrameworks": [
           "net6.0-windows7.0"
         ],
         "sources": {
           "C:\\Program Files (x86)\\Microsoft SDKs\\NuGetPackages\\": {},
+          "C:\\Users\\stonx\\Documents\\NugetPackage\\nevrondotnetvision": {},
           "https://api.nuget.org/v3/index.json": {}
         },
         "frameworks": {
@@ -55,6 +58,14 @@
             "LiveChartsCore.SkiaSharpView.WinForms": {
               "target": "Package",
               "version": "[2.0.0-beta.400, )"
+            },
+            "NevronDotNetVision": {
+              "target": "Package",
+              "version": "[22.4.12.12, )"
+            },
+            "NevronVision": {
+              "target": "Package",
+              "version": "[2019.1.1, )"
             },
             "Prism.Core": {
               "target": "Package",

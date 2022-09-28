@@ -29,21 +29,19 @@
         private void InitializeComponent()
         {
             this.components = new System.ComponentModel.Container();
+            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(ChartModel));
             this.cartesianChart1 = new LiveChartsCore.SkiaSharpView.WinForms.CartesianChart();
             this.comboBox1 = new System.Windows.Forms.ComboBox();
             this.button1 = new System.Windows.Forms.Button();
             this.button2 = new System.Windows.Forms.Button();
             this.serialData = new System.Windows.Forms.RichTextBox();
-            this.pictureBox1 = new System.Windows.Forms.PictureBox();
-            this.pictureBox2 = new System.Windows.Forms.PictureBox();
-            this.pictureBox3 = new System.Windows.Forms.PictureBox();
             this.comboBox2 = new System.Windows.Forms.ComboBox();
             this.GetPorts = new System.Windows.Forms.Button();
             this.button4 = new System.Windows.Forms.Button();
             this.timer1 = new System.Windows.Forms.Timer(this.components);
-            ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.pictureBox2)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.pictureBox3)).BeginInit();
+            this.nChartControl1 = new Nevron.Chart.WinForm.NChartControl();
+            this.nChartControl2 = new Nevron.Chart.WinForm.NChartControl();
+            this.nChartControl3 = new Nevron.Chart.WinForm.NChartControl();
             this.SuspendLayout();
             // 
             // cartesianChart1
@@ -83,30 +81,6 @@
             this.serialData.TabIndex = 0;
             this.serialData.Text = "";
             // 
-            // pictureBox1
-            // 
-            this.pictureBox1.Location = new System.Drawing.Point(12, 12);
-            this.pictureBox1.Name = "pictureBox1";
-            this.pictureBox1.Size = new System.Drawing.Size(426, 111);
-            this.pictureBox1.TabIndex = 0;
-            this.pictureBox1.TabStop = false;
-            // 
-            // pictureBox2
-            // 
-            this.pictureBox2.Location = new System.Drawing.Point(12, 131);
-            this.pictureBox2.Name = "pictureBox2";
-            this.pictureBox2.Size = new System.Drawing.Size(426, 111);
-            this.pictureBox2.TabIndex = 1;
-            this.pictureBox2.TabStop = false;
-            // 
-            // pictureBox3
-            // 
-            this.pictureBox3.Location = new System.Drawing.Point(12, 248);
-            this.pictureBox3.Name = "pictureBox3";
-            this.pictureBox3.Size = new System.Drawing.Size(426, 111);
-            this.pictureBox3.TabIndex = 2;
-            this.pictureBox3.TabStop = false;
-            // 
             // comboBox2
             // 
             this.comboBox2.FormattingEnabled = true;
@@ -138,21 +112,53 @@
             // timer1
             // 
             this.timer1.Interval = 20;
-            this.timer1.Tick += new System.EventHandler(this.timer1_Tick_1);
+            // 
+            // nChartControl1
+            // 
+            this.nChartControl1.AutoRefresh = false;
+            this.nChartControl1.BackColor = System.Drawing.SystemColors.Control;
+            this.nChartControl1.InputKeys = new System.Windows.Forms.Keys[0];
+            this.nChartControl1.Location = new System.Drawing.Point(12, 13);
+            this.nChartControl1.Name = "nChartControl1";
+            this.nChartControl1.Size = new System.Drawing.Size(474, 110);
+            this.nChartControl1.State = ((Nevron.Chart.WinForm.NState)(resources.GetObject("nChartControl1.State")));
+            this.nChartControl1.TabIndex = 6;
+            this.nChartControl1.Text = "nChartControl1";
+            // 
+            // nChartControl2
+            // 
+            this.nChartControl2.AutoRefresh = false;
+            this.nChartControl2.BackColor = System.Drawing.SystemColors.Control;
+            this.nChartControl2.InputKeys = new System.Windows.Forms.Keys[0];
+            this.nChartControl2.Location = new System.Drawing.Point(12, 129);
+            this.nChartControl2.Name = "nChartControl2";
+            this.nChartControl2.Size = new System.Drawing.Size(474, 110);
+            this.nChartControl2.State = ((Nevron.Chart.WinForm.NState)(resources.GetObject("nChartControl2.State")));
+            this.nChartControl2.TabIndex = 7;
+            this.nChartControl2.Text = "nChartControl2";
+            // 
+            // nChartControl3
+            // 
+            this.nChartControl3.AutoRefresh = false;
+            this.nChartControl3.BackColor = System.Drawing.SystemColors.Control;
+            this.nChartControl3.InputKeys = new System.Windows.Forms.Keys[0];
+            this.nChartControl3.Location = new System.Drawing.Point(12, 245);
+            this.nChartControl3.Name = "nChartControl3";
+            this.nChartControl3.Size = new System.Drawing.Size(474, 110);
+            this.nChartControl3.State = ((Nevron.Chart.WinForm.NState)(resources.GetObject("nChartControl3.State")));
+            this.nChartControl3.TabIndex = 8;
+            this.nChartControl3.Text = "nChartControl3";
             // 
             // ChartModel
             // 
             this.ClientSize = new System.Drawing.Size(685, 372);
+            this.Controls.Add(this.nChartControl3);
+            this.Controls.Add(this.nChartControl2);
+            this.Controls.Add(this.nChartControl1);
             this.Controls.Add(this.button4);
             this.Controls.Add(this.GetPorts);
             this.Controls.Add(this.comboBox2);
-            this.Controls.Add(this.pictureBox3);
-            this.Controls.Add(this.pictureBox2);
-            this.Controls.Add(this.pictureBox1);
             this.Name = "ChartModel";
-            ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.pictureBox2)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.pictureBox3)).EndInit();
             this.ResumeLayout(false);
 
         }
@@ -164,12 +170,12 @@
         private Button button1;
         private Button button2;
         private RichTextBox serialData;
-        private PictureBox pictureBox1;
-        private PictureBox pictureBox2;
-        private PictureBox pictureBox3;
         private ComboBox comboBox2;
         private Button GetPorts;
         private Button button4;
         private System.Windows.Forms.Timer timer1;
+        private Nevron.Chart.WinForm.NChartControl nChartControl1;
+        private Nevron.Chart.WinForm.NChartControl nChartControl2;
+        private Nevron.Chart.WinForm.NChartControl nChartControl3;
     }
 }

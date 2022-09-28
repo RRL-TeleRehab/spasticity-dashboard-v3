@@ -121,7 +121,7 @@
           "Microsoft.WindowsDesktop.App.WindowsForms"
         ]
       },
-      "Microsoft.NETCore.Platforms/2.0.0": {
+      "Microsoft.NETCore.Platforms/5.0.0": {
         "type": "package",
         "compile": {
           "lib/netstandard1.0/_._": {}
@@ -162,10 +162,10 @@
           }
         }
       },
-      "Microsoft.Win32.SystemEvents/4.5.0": {
+      "Microsoft.Win32.SystemEvents/5.0.0": {
         "type": "package",
         "dependencies": {
-          "Microsoft.NETCore.Platforms": "2.0.0"
+          "Microsoft.NETCore.Platforms": "5.0.0"
         },
         "compile": {
           "ref/netstandard2.0/_._": {}
@@ -174,7 +174,7 @@
           "lib/netstandard2.0/Microsoft.Win32.SystemEvents.dll": {}
         },
         "runtimeTargets": {
-          "runtimes/win/lib/netcoreapp2.0/Microsoft.Win32.SystemEvents.dll": {
+          "runtimes/win/lib/netcoreapp3.0/Microsoft.Win32.SystemEvents.dll": {
             "assetType": "runtime",
             "rid": "win"
           }
@@ -193,6 +193,79 @@
         },
         "build": {
           "build/netstandard2.0/NETStandard.Library.targets": {}
+        }
+      },
+      "NevronDotNetVision/22.4.12.12": {
+        "type": "package",
+        "dependencies": {
+          "System.Drawing.Common": "5.0.0"
+        },
+        "compile": {
+          "lib/net5.0-windows7.0/Nevron.Chart.WinForm.dll": {},
+          "lib/net5.0-windows7.0/Nevron.Chart.Wpf.dll": {},
+          "lib/net5.0-windows7.0/Nevron.Chart.dll": {},
+          "lib/net5.0-windows7.0/Nevron.Diagram.Shapes.dll": {},
+          "lib/net5.0-windows7.0/Nevron.Diagram.WinForm.dll": {},
+          "lib/net5.0-windows7.0/Nevron.Diagram.dll": {},
+          "lib/net5.0-windows7.0/Nevron.GraphicsGL.dll": {},
+          "lib/net5.0-windows7.0/Nevron.Presentation.dll": {},
+          "lib/net5.0-windows7.0/Nevron.System.dll": {}
+        },
+        "runtime": {
+          "lib/net5.0-windows7.0/Nevron.Chart.WinForm.dll": {},
+          "lib/net5.0-windows7.0/Nevron.Chart.Wpf.dll": {},
+          "lib/net5.0-windows7.0/Nevron.Chart.dll": {},
+          "lib/net5.0-windows7.0/Nevron.Diagram.Shapes.dll": {},
+          "lib/net5.0-windows7.0/Nevron.Diagram.WinForm.dll": {},
+          "lib/net5.0-windows7.0/Nevron.Diagram.dll": {},
+          "lib/net5.0-windows7.0/Nevron.GraphicsGL.dll": {},
+          "lib/net5.0-windows7.0/Nevron.Presentation.dll": {},
+          "lib/net5.0-windows7.0/Nevron.System.dll": {}
+        }
+      },
+      "NevronVision/2019.1.1": {
+        "type": "package",
+        "compile": {
+          "lib/net45/Nevron.Chart.ThinWeb.dll": {},
+          "lib/net45/Nevron.Chart.WebForm.dll": {},
+          "lib/net45/Nevron.Chart.WinForm.dll": {},
+          "lib/net45/Nevron.Chart.Wpf.dll": {},
+          "lib/net45/Nevron.Chart.dll": {},
+          "lib/net45/Nevron.Diagram.Shapes.dll": {},
+          "lib/net45/Nevron.Diagram.ThinWeb.dll": {},
+          "lib/net45/Nevron.Diagram.WebForm.dll": {},
+          "lib/net45/Nevron.Diagram.WinForm.dll": {},
+          "lib/net45/Nevron.Diagram.dll": {},
+          "lib/net45/Nevron.Examples.Framework.WebForm.dll": {},
+          "lib/net45/Nevron.Examples.Framework.WinForm.dll": {},
+          "lib/net45/Nevron.GraphicsGL.dll": {},
+          "lib/net45/Nevron.Presentation.dll": {},
+          "lib/net45/Nevron.System.dll": {},
+          "lib/net45/Nevron.ThinWeb.dll": {},
+          "lib/net45/Nevron.UI.WebForm.Controls.dll": {},
+          "lib/net45/Nevron.UI.WinForm.Docking.dll": {},
+          "lib/net45/Nevron.UI.WinForm.Skins.dll": {}
+        },
+        "runtime": {
+          "lib/net45/Nevron.Chart.ThinWeb.dll": {},
+          "lib/net45/Nevron.Chart.WebForm.dll": {},
+          "lib/net45/Nevron.Chart.WinForm.dll": {},
+          "lib/net45/Nevron.Chart.Wpf.dll": {},
+          "lib/net45/Nevron.Chart.dll": {},
+          "lib/net45/Nevron.Diagram.Shapes.dll": {},
+          "lib/net45/Nevron.Diagram.ThinWeb.dll": {},
+          "lib/net45/Nevron.Diagram.WebForm.dll": {},
+          "lib/net45/Nevron.Diagram.WinForm.dll": {},
+          "lib/net45/Nevron.Diagram.dll": {},
+          "lib/net45/Nevron.Examples.Framework.WebForm.dll": {},
+          "lib/net45/Nevron.Examples.Framework.WinForm.dll": {},
+          "lib/net45/Nevron.GraphicsGL.dll": {},
+          "lib/net45/Nevron.Presentation.dll": {},
+          "lib/net45/Nevron.System.dll": {},
+          "lib/net45/Nevron.ThinWeb.dll": {},
+          "lib/net45/Nevron.UI.WebForm.Controls.dll": {},
+          "lib/net45/Nevron.UI.WinForm.Docking.dll": {},
+          "lib/net45/Nevron.UI.WinForm.Skins.dll": {}
         }
       },
       "OpenTK/3.1.0": {
@@ -437,24 +510,23 @@
           "lib/netcoreapp2.0/_._": {}
         }
       },
-      "System.Drawing.Common/4.5.1": {
+      "System.Drawing.Common/5.0.0": {
         "type": "package",
         "dependencies": {
-          "Microsoft.NETCore.Platforms": "2.0.0",
-          "Microsoft.Win32.SystemEvents": "4.5.0"
+          "Microsoft.Win32.SystemEvents": "5.0.0"
         },
         "compile": {
-          "ref/netstandard2.0/System.Drawing.Common.dll": {}
+          "ref/netcoreapp3.0/System.Drawing.Common.dll": {}
         },
         "runtime": {
-          "lib/netstandard2.0/System.Drawing.Common.dll": {}
+          "lib/netcoreapp3.0/System.Drawing.Common.dll": {}
         },
         "runtimeTargets": {
-          "runtimes/unix/lib/netcoreapp2.0/System.Drawing.Common.dll": {
+          "runtimes/unix/lib/netcoreapp3.0/System.Drawing.Common.dll": {
             "assetType": "runtime",
             "rid": "unix"
           },
-          "runtimes/win/lib/netcoreapp2.0/System.Drawing.Common.dll": {
+          "runtimes/win/lib/netcoreapp3.0/System.Drawing.Common.dll": {
             "assetType": "runtime",
             "rid": "win"
           }
@@ -874,17 +946,18 @@
         "livechartscore.skiasharpview.winforms.nuspec"
       ]
     },
-    "Microsoft.NETCore.Platforms/2.0.0": {
-      "sha512": "VdLJOCXhZaEMY7Hm2GKiULmn7IEPFE4XC5LPSfBVCUIA8YLZVh846gtfBJalsPQF2PlzdD7ecX7DZEulJ402ZQ==",
+    "Microsoft.NETCore.Platforms/5.0.0": {
+      "sha512": "VyPlqzH2wavqquTcYpkIIAQ6WdenuKoFN0BdYBbCWsclXacSOHNQn66Gt4z5NBqEYW0FAPm5rlvki9ZiCij5xQ==",
       "type": "package",
-      "path": "microsoft.netcore.platforms/2.0.0",
+      "path": "microsoft.netcore.platforms/5.0.0",
       "files": [
         ".nupkg.metadata",
         ".signature.p7s",
+        "Icon.png",
         "LICENSE.TXT",
         "THIRD-PARTY-NOTICES.TXT",
         "lib/netstandard1.0/_._",
-        "microsoft.netcore.platforms.2.0.0.nupkg.sha512",
+        "microsoft.netcore.platforms.5.0.0.nupkg.sha512",
         "microsoft.netcore.platforms.nuspec",
         "runtime.json",
         "useSharedDesignerContext.txt",
@@ -946,22 +1019,30 @@
         "version.txt"
       ]
     },
-    "Microsoft.Win32.SystemEvents/4.5.0": {
-      "sha512": "LuI1oG+24TUj1ZRQQjM5Ew73BKnZE5NZ/7eAdh1o8ST5dPhUnJvIkiIn2re3MwnkRy6ELRnvEbBxHP8uALKhJw==",
+    "Microsoft.Win32.SystemEvents/5.0.0": {
+      "sha512": "Bh6blKG8VAKvXiLe2L+sEsn62nc1Ij34MrNxepD2OCrS5cpCwQa9MeLyhVQPQ/R4Wlzwuy6wMK8hLb11QPDRsQ==",
       "type": "package",
-      "path": "microsoft.win32.systemevents/4.5.0",
+      "path": "microsoft.win32.systemevents/5.0.0",
       "files": [
         ".nupkg.metadata",
         ".signature.p7s",
+        "Icon.png",
         "LICENSE.TXT",
         "THIRD-PARTY-NOTICES.TXT",
         "lib/net461/Microsoft.Win32.SystemEvents.dll",
+        "lib/net461/Microsoft.Win32.SystemEvents.xml",
         "lib/netstandard2.0/Microsoft.Win32.SystemEvents.dll",
-        "microsoft.win32.systemevents.4.5.0.nupkg.sha512",
+        "lib/netstandard2.0/Microsoft.Win32.SystemEvents.xml",
+        "microsoft.win32.systemevents.5.0.0.nupkg.sha512",
         "microsoft.win32.systemevents.nuspec",
         "ref/net461/Microsoft.Win32.SystemEvents.dll",
+        "ref/net461/Microsoft.Win32.SystemEvents.xml",
         "ref/netstandard2.0/Microsoft.Win32.SystemEvents.dll",
+        "ref/netstandard2.0/Microsoft.Win32.SystemEvents.xml",
         "runtimes/win/lib/netcoreapp2.0/Microsoft.Win32.SystemEvents.dll",
+        "runtimes/win/lib/netcoreapp2.0/Microsoft.Win32.SystemEvents.xml",
+        "runtimes/win/lib/netcoreapp3.0/Microsoft.Win32.SystemEvents.dll",
+        "runtimes/win/lib/netcoreapp3.0/Microsoft.Win32.SystemEvents.xml",
         "useSharedDesignerContext.txt",
         "version.txt"
       ]
@@ -1093,6 +1174,124 @@
         "lib/netstandard1.0/_._",
         "netstandard.library.2.0.3.nupkg.sha512",
         "netstandard.library.nuspec"
+      ]
+    },
+    "NevronDotNetVision/22.4.12.12": {
+      "sha512": "fSuI9m7QiZrld73Z8Dz3AnqhKVieYkOYd1J4MeZkHe6XmXDZlgHKqjp/Q3nxDC763mWy0JMnK42R9+gsbIcCTw==",
+      "type": "package",
+      "path": "nevrondotnetvision/22.4.12.12",
+      "hasTools": true,
+      "files": [
+        ".nupkg.metadata",
+        ".signature.p7s",
+        "docs/LicenseAgreement.txt",
+        "images/vision-icon-128x128.png",
+        "lib/net40/Nevron.Chart.ThinWeb.dll",
+        "lib/net40/Nevron.Chart.ThinWeb.xml",
+        "lib/net40/Nevron.Chart.WebForm.dll",
+        "lib/net40/Nevron.Chart.WebForm.xml",
+        "lib/net40/Nevron.Chart.WinForm.dll",
+        "lib/net40/Nevron.Chart.WinForm.xml",
+        "lib/net40/Nevron.Chart.Wpf.dll",
+        "lib/net40/Nevron.Chart.Wpf.xml",
+        "lib/net40/Nevron.Chart.dll",
+        "lib/net40/Nevron.Chart.xml",
+        "lib/net40/Nevron.Diagram.Shapes.dll",
+        "lib/net40/Nevron.Diagram.Shapes.xml",
+        "lib/net40/Nevron.Diagram.ThinWeb.dll",
+        "lib/net40/Nevron.Diagram.ThinWeb.xml",
+        "lib/net40/Nevron.Diagram.WebForm.dll",
+        "lib/net40/Nevron.Diagram.WebForm.xml",
+        "lib/net40/Nevron.Diagram.WinForm.dll",
+        "lib/net40/Nevron.Diagram.WinForm.xml",
+        "lib/net40/Nevron.Diagram.dll",
+        "lib/net40/Nevron.Diagram.xml",
+        "lib/net40/Nevron.GraphicsGL.dll",
+        "lib/net40/Nevron.GraphicsGL.xml",
+        "lib/net40/Nevron.Presentation.dll",
+        "lib/net40/Nevron.Presentation.xml",
+        "lib/net40/Nevron.System.dll",
+        "lib/net40/Nevron.System.xml",
+        "lib/net40/Nevron.ThinWeb.dll",
+        "lib/net40/Nevron.ThinWeb.xml",
+        "lib/net40/Nevron.UI.WebForm.Controls.dll",
+        "lib/net40/Nevron.UI.WebForm.Controls.xml",
+        "lib/net40/Nevron.UI.WinForm.Docking.dll",
+        "lib/net40/Nevron.UI.WinForm.Docking.xml",
+        "lib/net40/Nevron.UI.WinForm.Skins.dll",
+        "lib/net40/Nevron.UI.WinForm.Skins.xml",
+        "lib/net5.0-windows7.0/Nevron.Chart.WinForm.dll",
+        "lib/net5.0-windows7.0/Nevron.Chart.WinForm.xml",
+        "lib/net5.0-windows7.0/Nevron.Chart.Wpf.dll",
+        "lib/net5.0-windows7.0/Nevron.Chart.Wpf.xml",
+        "lib/net5.0-windows7.0/Nevron.Chart.dll",
+        "lib/net5.0-windows7.0/Nevron.Chart.xml",
+        "lib/net5.0-windows7.0/Nevron.Diagram.Shapes.dll",
+        "lib/net5.0-windows7.0/Nevron.Diagram.Shapes.xml",
+        "lib/net5.0-windows7.0/Nevron.Diagram.WinForm.dll",
+        "lib/net5.0-windows7.0/Nevron.Diagram.WinForm.xml",
+        "lib/net5.0-windows7.0/Nevron.Diagram.dll",
+        "lib/net5.0-windows7.0/Nevron.Diagram.xml",
+        "lib/net5.0-windows7.0/Nevron.GraphicsGL.dll",
+        "lib/net5.0-windows7.0/Nevron.GraphicsGL.xml",
+        "lib/net5.0-windows7.0/Nevron.Presentation.dll",
+        "lib/net5.0-windows7.0/Nevron.Presentation.xml",
+        "lib/net5.0-windows7.0/Nevron.System.dll",
+        "lib/net5.0-windows7.0/Nevron.System.xml",
+        "nevrondotnetvision.22.4.12.12.nupkg.sha512",
+        "nevrondotnetvision.nuspec",
+        "tools/VisualStudioToolsManifest.xml"
+      ]
+    },
+    "NevronVision/2019.1.1": {
+      "sha512": "nO17JvbgpGKPnODd6V7ZsBL7SKWfcmO04+1Rz9bVbBLUxNYsYV9PnW3/lHes1H1r7WY50Quuff8gch7GyiThsQ==",
+      "type": "package",
+      "path": "nevronvision/2019.1.1",
+      "files": [
+        ".nupkg.metadata",
+        ".signature.p7s",
+        "docs/LicenseAgreement.txt",
+        "images/vision-icon-128x128.png",
+        "lib/net45/Nevron.Chart.ThinWeb.dll",
+        "lib/net45/Nevron.Chart.ThinWeb.xml",
+        "lib/net45/Nevron.Chart.WebForm.dll",
+        "lib/net45/Nevron.Chart.WebForm.xml",
+        "lib/net45/Nevron.Chart.WinForm.dll",
+        "lib/net45/Nevron.Chart.WinForm.xml",
+        "lib/net45/Nevron.Chart.Wpf.dll",
+        "lib/net45/Nevron.Chart.Wpf.xml",
+        "lib/net45/Nevron.Chart.dll",
+        "lib/net45/Nevron.Chart.xml",
+        "lib/net45/Nevron.Diagram.Shapes.dll",
+        "lib/net45/Nevron.Diagram.Shapes.xml",
+        "lib/net45/Nevron.Diagram.ThinWeb.dll",
+        "lib/net45/Nevron.Diagram.ThinWeb.xml",
+        "lib/net45/Nevron.Diagram.WebForm.dll",
+        "lib/net45/Nevron.Diagram.WebForm.xml",
+        "lib/net45/Nevron.Diagram.WinForm.dll",
+        "lib/net45/Nevron.Diagram.WinForm.xml",
+        "lib/net45/Nevron.Diagram.dll",
+        "lib/net45/Nevron.Diagram.xml",
+        "lib/net45/Nevron.Examples.Framework.WebForm.dll",
+        "lib/net45/Nevron.Examples.Framework.WebForm.xml",
+        "lib/net45/Nevron.Examples.Framework.WinForm.dll",
+        "lib/net45/Nevron.Examples.Framework.WinForm.xml",
+        "lib/net45/Nevron.GraphicsGL.dll",
+        "lib/net45/Nevron.GraphicsGL.xml",
+        "lib/net45/Nevron.Presentation.dll",
+        "lib/net45/Nevron.Presentation.xml",
+        "lib/net45/Nevron.System.dll",
+        "lib/net45/Nevron.System.xml",
+        "lib/net45/Nevron.ThinWeb.dll",
+        "lib/net45/Nevron.ThinWeb.xml",
+        "lib/net45/Nevron.UI.WebForm.Controls.dll",
+        "lib/net45/Nevron.UI.WebForm.Controls.xml",
+        "lib/net45/Nevron.UI.WinForm.Docking.dll",
+        "lib/net45/Nevron.UI.WinForm.Docking.xml",
+        "lib/net45/Nevron.UI.WinForm.Skins.dll",
+        "lib/net45/Nevron.UI.WinForm.Skins.xml",
+        "nevronvision.2019.1.1.nupkg.sha512",
+        "nevronvision.nuspec"
       ]
     },
     "OpenTK/3.1.0": {
@@ -1665,18 +1864,21 @@
         "version.txt"
       ]
     },
-    "System.Drawing.Common/4.5.1": {
-      "sha512": "GiyeGi/v4xYDz1vCNFwFvhz9k1XddOG7VD3jxRqzRBCbTHji+s3HxxbxtoymuK4OadEpgotI8zQ5+GEEH9sUEQ==",
+    "System.Drawing.Common/5.0.0": {
+      "sha512": "SztFwAnpfKC8+sEKXAFxCBWhKQaEd97EiOL7oZJZP56zbqnLpmxACWA8aGseaUExciuEAUuR9dY8f7HkTRAdnw==",
       "type": "package",
-      "path": "system.drawing.common/4.5.1",
+      "path": "system.drawing.common/5.0.0",
       "files": [
         ".nupkg.metadata",
         ".signature.p7s",
+        "Icon.png",
         "LICENSE.TXT",
         "THIRD-PARTY-NOTICES.TXT",
         "lib/MonoAndroid10/_._",
         "lib/MonoTouch10/_._",
         "lib/net461/System.Drawing.Common.dll",
+        "lib/netcoreapp3.0/System.Drawing.Common.dll",
+        "lib/netcoreapp3.0/System.Drawing.Common.xml",
         "lib/netstandard2.0/System.Drawing.Common.dll",
         "lib/xamarinios10/_._",
         "lib/xamarinmac20/_._",
@@ -1685,14 +1887,20 @@
         "ref/MonoAndroid10/_._",
         "ref/MonoTouch10/_._",
         "ref/net461/System.Drawing.Common.dll",
+        "ref/netcoreapp3.0/System.Drawing.Common.dll",
+        "ref/netcoreapp3.0/System.Drawing.Common.xml",
         "ref/netstandard2.0/System.Drawing.Common.dll",
         "ref/xamarinios10/_._",
         "ref/xamarinmac20/_._",
         "ref/xamarintvos10/_._",
         "ref/xamarinwatchos10/_._",
         "runtimes/unix/lib/netcoreapp2.0/System.Drawing.Common.dll",
+        "runtimes/unix/lib/netcoreapp3.0/System.Drawing.Common.dll",
+        "runtimes/unix/lib/netcoreapp3.0/System.Drawing.Common.xml",
         "runtimes/win/lib/netcoreapp2.0/System.Drawing.Common.dll",
-        "system.drawing.common.4.5.1.nupkg.sha512",
+        "runtimes/win/lib/netcoreapp3.0/System.Drawing.Common.dll",
+        "runtimes/win/lib/netcoreapp3.0/System.Drawing.Common.xml",
+        "system.drawing.common.5.0.0.nupkg.sha512",
         "system.drawing.common.nuspec",
         "useSharedDesignerContext.txt",
         "version.txt"
@@ -2445,6 +2653,8 @@
       "DevExpress.Data >= 22.1.5",
       "DevExpress.Data.de >= 22.1.5",
       "LiveChartsCore.SkiaSharpView.WinForms >= 2.0.0-beta.400",
+      "NevronDotNetVision >= 22.4.12.12",
+      "NevronVision >= 2019.1.1",
       "Prism.Core >= 8.1.97",
       "Syncfusion.Licensing >= 20.2.0.44",
       "Syncfusion.Shared.Windows >= 19.3.0.48",
@@ -2454,7 +2664,8 @@
   },
   "packageFolders": {
     "C:\\Users\\stonx\\.nuget\\packages\\": {},
-    "C:\\Program Files (x86)\\Microsoft Visual Studio\\Shared\\NuGetPackages": {}
+    "C:\\Program Files (x86)\\Microsoft Visual Studio\\Shared\\NuGetPackages": {},
+    "C:\\Users\\stonx\\Documents\\NugetPackage\\nevrondotnetvision": {}
   },
   "project": {
     "version": "1.0.0",
@@ -2466,18 +2677,21 @@
       "outputPath": "C:\\Users\\stonx\\Documents\\GitHub\\SpasticityClientV2\\obj\\",
       "projectStyle": "PackageReference",
       "fallbackFolders": [
-        "C:\\Program Files (x86)\\Microsoft Visual Studio\\Shared\\NuGetPackages"
+        "C:\\Program Files (x86)\\Microsoft Visual Studio\\Shared\\NuGetPackages",
+        "C:\\Users\\stonx\\Documents\\NugetPackage\\nevrondotnetvision"
       ],
       "configFilePaths": [
         "C:\\Users\\stonx\\AppData\\Roaming\\NuGet\\NuGet.Config",
         "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.FallbackLocation.config",
-        "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.Offline.config"
+        "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.Offline.config",
+        "C:\\Program Files (x86)\\NuGet\\Config\\NevronDotNetVision.22.4.12.12.config"
       ],
       "originalTargetFrameworks": [
         "net6.0-windows7.0"
       ],
       "sources": {
         "C:\\Program Files (x86)\\Microsoft SDKs\\NuGetPackages\\": {},
+        "C:\\Users\\stonx\\Documents\\NugetPackage\\nevrondotnetvision": {},
         "https://api.nuget.org/v3/index.json": {}
       },
       "frameworks": {
@@ -2507,6 +2721,14 @@
           "LiveChartsCore.SkiaSharpView.WinForms": {
             "target": "Package",
             "version": "[2.0.0-beta.400, )"
+          },
+          "NevronDotNetVision": {
+            "target": "Package",
+            "version": "[22.4.12.12, )"
+          },
+          "NevronVision": {
+            "target": "Package",
+            "version": "[2019.1.1, )"
           },
           "Prism.Core": {
             "target": "Package",
@@ -2552,6 +2774,16 @@
     }
   },
   "logs": [
+    {
+      "code": "NU1701",
+      "level": "Warning",
+      "warningLevel": 1,
+      "message": "Package 'NevronVision 2019.1.1' was restored using '.NETFramework,Version=v4.6.1, .NETFramework,Version=v4.6.2, .NETFramework,Version=v4.7, .NETFramework,Version=v4.7.1, .NETFramework,Version=v4.7.2, .NETFramework,Version=v4.8' instead of the project target framework 'net6.0-windows7.0'. This package may not be fully compatible with your project.",
+      "libraryId": "NevronVision",
+      "targetGraphs": [
+        "net6.0-windows7.0"
+      ]
+    },
     {
       "code": "NU1701",
       "level": "Warning",
