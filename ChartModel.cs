@@ -106,6 +106,21 @@ namespace SpasticityClientV2
             emgSeries = (NLineSeries)emgChart.Series.Add(SeriesType.Line);
             angleSeries = (NLineSeries)angleChart.Series.Add(SeriesType.Line);
 
+            var wid = 500;
+            var hei = 150;
+            forceChart.Height = hei;
+            forceChart.Width = wid;
+            emgChart.Height = hei;
+            emgChart.Width = wid;
+            angleChart.Height = hei;
+            angleChart.Width = wid;
+
+            forceSeries.DataLabelStyle.Visible = false;
+            emgSeries.DataLabelStyle.Visible = false;
+            angleSeries.DataLabelStyle.Visible = false;
+
+            var bufferLimit = 100;
+
             try
             {
                 //var nowstart = DateTime.Now;
@@ -205,23 +220,29 @@ namespace SpasticityClientV2
                                     forceDiff = force - initialForce;
                                     #endregion
 
+                                    if (forceSeries.Values.Count > bufferLimit)
+                                    {
+                                        forceSeries.Values.RemoveAt(0);
+                                        emgSeries.Values.RemoveAt(0);
+                                        angleSeries.Values.RemoveAt(0);
+                                    }
+
                                     forceSeries.Values.Add(forceDiff);
                                     emgSeries.Values.Add(emg);
                                     angleSeries.Values.Add(angle);
-
                                     nChartControl1.Refresh();
                                     nChartControl2.Refresh();
                                     nChartControl3.Refresh();
                                     
                                     #region Send data to Excel collection
-                                    SessionDatas.Add(new SessionData
-                                    {
-                                        TimeStamp = (long)elapsedTime,
-                                        Angle_deg = angle,
-                                        AngVel_degpersec = angVel,
-                                        EMG_mV = emg,
-                                        Force_N = forceDiff
-                                    });;
+                                    //SessionDatas.Add(new SessionData
+                                    //{
+                                    //    TimeStamp = (long)elapsedTime,
+                                    //    Angle_deg = angle,
+                                    //    AngVel_degpersec = angVel,
+                                    //    EMG_mV = emg,
+                                    //    Force_N = forceDiff
+                                    //});;
                                     #endregion
 
                                     counter++;
