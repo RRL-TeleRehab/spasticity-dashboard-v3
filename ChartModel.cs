@@ -39,6 +39,7 @@ namespace SpasticityClientV2
 
         public ChartModel()
         {
+            Syncfusion.Licensing.SyncfusionLicenseProvider.RegisterLicense("NzM1MjI5QDMyMzAyZTMzMmUzMGNzTncwMXBQcUs0d3dPM1lTT0oyc1ZaVkxpTzlsZUs5eTFNTWJYZnF4L1U9");
             InitializeComponent();
         }
 
@@ -571,16 +572,16 @@ IApplication application = excelEngine.Excel;
                 //Set path and save
                 //string spreadsheetNamePath = "acquiredData\\";
                 //string spreadsheetNamePath = "C:\\Users\\stonx\\Desktop\\acquiredData";
-                //string spreadsheetNameDate = DateTime.Now.ToString("dddd dd MMM y HHmmss");
-                //string spreadsheetName = spreadsheetNamePath + spreadsheetNameDate;
-            //I CHANGED THIS
-            //string path = Path.GetDirectoryName(Environment.ProcessPath)
-            //+ "\\acquiredData\\";
+                string spreadsheetNameDate = DateTime.Now.ToString("dddd dd MMM y HHmmss");
+                string spreadsheetName = spreadsheetNameDate;
+                //I CHANGED THIS
+                string path = Path.GetDirectoryName(Environment.ProcessPath);
+            
                 //string path = "C:\\Users\\stonx\\Desktop\\acquiredData";
                 worksheet.DisableSheetCalculations();
                 // convert string to stream
-                //byte[] byteArray = Encoding.UTF8.GetBytes(spreadsheetName + ".xlsx");
-                byte[] byteArray = Encoding.UTF8.GetBytes("TestName.xlsx");
+                byte[] byteArray = Encoding.UTF8.GetBytes(path + "\\" + spreadsheetName + ".xlsx");
+                //byte[] byteArray = Encoding.UTF8.GetBytes("TestName.xlsx");
 
                     //MemoryStream stream = new MemoryStream(byteArray);
                     //workbook.SaveAs(spreadsheetName);
@@ -595,7 +596,7 @@ IApplication application = excelEngine.Excel;
 
                 #region View the Workbook
 
-                Process.Start("TestName.xlsx");
+                Process.Start(path + "\\" + spreadsheetName + ".xlsx");
 
                 // Now that the file has been created, delete contents of SessionDatas
                 // Thread.Sleep(500);
@@ -613,6 +614,11 @@ IApplication application = excelEngine.Excel;
         {   
             IsCancelled = true;
             IsRunning = false;
+        }
+
+        private void nChartControl1_Click(object sender, EventArgs e)
+        {
+
         }
     }
 }

@@ -44,7 +44,6 @@
             this.button3 = new System.Windows.Forms.Button();
             this.button5 = new System.Windows.Forms.Button();
             this.SuspendLayout();
-           
             // 
             // comboBox1
             // 
@@ -118,6 +117,7 @@
             this.nChartControl1.State = ((Nevron.Chart.WinForm.NState)(resources.GetObject("nChartControl1.State")));
             this.nChartControl1.TabIndex = 6;
             this.nChartControl1.Text = "nChartControl1";
+            this.nChartControl1.Click += new System.EventHandler(this.nChartControl1_Click);
             // 
             // nChartControl2
             // 
