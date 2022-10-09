@@ -2,6 +2,7 @@ using System.IO.Ports;
 using System.Threading.Tasks;
 using System.Windows.Forms;
 using Syncfusion.XlsIO;
+using Syncfusion.Licensing;
 using System;
 using System.Collections.Generic;
 using System.Collections.ObjectModel;
@@ -39,7 +40,7 @@ namespace SpasticityClientV2
 
         public ChartModel()
         {
-            Syncfusion.Licensing.SyncfusionLicenseProvider.RegisterLicense("NzM1MjI5QDMyMzAyZTMzMmUzMGNzTncwMXBQcUs0d3dPM1lTT0oyc1ZaVkxpTzlsZUs5eTFNTWJYZnF4L1U9");
+            
             InitializeComponent();
         }
 
@@ -575,9 +576,9 @@ IApplication application = excelEngine.Excel;
                 string spreadsheetNameDate = DateTime.Now.ToString("dddd dd MMM y HHmmss");
                 string spreadsheetName = spreadsheetNameDate;
                 //I CHANGED THIS
-                string path = Path.GetDirectoryName(Environment.ProcessPath);
+                //string path = Path.GetDirectoryName(Environment.ProcessPath);
             
-                //string path = "C:\\Users\\stonx\\Desktop\\acquiredData";
+                string path = "C:\\Users\\spacebek\\Desktop\\acquiredData";
                 worksheet.DisableSheetCalculations();
                 // convert string to stream
                 byte[] byteArray = Encoding.UTF8.GetBytes(path + "\\" + spreadsheetName + ".xlsx");
