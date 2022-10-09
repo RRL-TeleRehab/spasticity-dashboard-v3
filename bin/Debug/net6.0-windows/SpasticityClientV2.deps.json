@@ -9,11 +9,8 @@
       "SpasticityClientV2/1.0.0": {
         "dependencies": {
           "NevronDotNetVision": "22.4.12.12",
-          "NevronVision": "2019.1.1",
-          "Prism.Core": "8.1.97",
-          "Syncfusion.Licensing": "20.3.0.48",
-          "Syncfusion.Shared.Windows": "19.3.0.48",
-          "Syncfusion.XlsIO.Net.Core": "20.3.0.48",
+          "Syncfusion.Licensing": "20.3.0.47",
+          "Syncfusion.XlsIO.Net.Core": "20.3.0.47",
           "System.IO.Ports": "7.0.0-rc.1.22426.10"
         },
         "runtime": {
@@ -66,58 +63,6 @@
           "lib/net5.0-windows7.0/Nevron.System.dll": {
             "assemblyVersion": "22.4.12.12",
             "fileVersion": "22.4.12.12"
-          }
-        }
-      },
-      "NevronVision/2019.1.1": {
-        "runtime": {
-          "lib/net45/Nevron.Chart.ThinWeb.dll": {
-            "assemblyVersion": "20.5.1.12",
-            "fileVersion": "20.5.1.12"
-          },
-          "lib/net45/Nevron.Chart.WebForm.dll": {
-            "assemblyVersion": "20.5.1.12",
-            "fileVersion": "20.5.1.12"
-          },
-          "lib/net45/Nevron.Diagram.ThinWeb.dll": {
-            "assemblyVersion": "20.5.1.12",
-            "fileVersion": "20.5.1.12"
-          },
-          "lib/net45/Nevron.Diagram.WebForm.dll": {
-            "assemblyVersion": "20.5.1.12",
-            "fileVersion": "20.5.1.12"
-          },
-          "lib/net45/Nevron.Examples.Framework.WebForm.dll": {
-            "assemblyVersion": "20.5.1.12",
-            "fileVersion": "20.5.1.12"
-          },
-          "lib/net45/Nevron.Examples.Framework.WinForm.dll": {
-            "assemblyVersion": "20.5.1.12",
-            "fileVersion": "20.5.1.12"
-          },
-          "lib/net45/Nevron.ThinWeb.dll": {
-            "assemblyVersion": "20.5.1.12",
-            "fileVersion": "20.5.1.12"
-          },
-          "lib/net45/Nevron.UI.WebForm.Controls.dll": {
-            "assemblyVersion": "20.5.1.12",
-            "fileVersion": "20.5.1.12"
-          },
-          "lib/net45/Nevron.UI.WinForm.Docking.dll": {
-            "assemblyVersion": "20.5.1.12",
-            "fileVersion": "20.5.1.12"
-          },
-          "lib/net45/Nevron.UI.WinForm.Skins.dll": {
-            "assemblyVersion": "20.5.1.12",
-            "fileVersion": "20.5.1.12"
-          }
-        }
-      },
-      "Prism.Core/8.1.97": {
-        "runtime": {
-          "lib/net5.0/Prism.dll": {
-            "assemblyVersion": "8.1.97.5141",
-            "fileVersion": "8.1.97.5141"
           }
         }
       },
@@ -175,54 +120,31 @@
           }
         }
       },
-      "Syncfusion.Compression.Net.Core/20.3.0.48": {
+      "Syncfusion.Compression.Net.Core/20.3.0.47": {
         "runtime": {
           "lib/net6.0/Syncfusion.Compression.Portable.dll": {
-            "assemblyVersion": "20.3600.0.48",
-            "fileVersion": "20.3600.0.48"
+            "assemblyVersion": "20.3600.0.47",
+            "fileVersion": "20.3600.0.47"
           }
         }
       },
-      "Syncfusion.Licensing/20.3.0.48": {
+      "Syncfusion.Licensing/20.3.0.47": {
         "runtime": {
           "lib/net6.0/Syncfusion.Licensing.dll": {
-            "assemblyVersion": "20.3.0.48",
-            "fileVersion": "20.3.0.48"
+            "assemblyVersion": "20.3.0.47",
+            "fileVersion": "20.3.0.47"
           }
         }
       },
-      "Syncfusion.Shared.Base/19.3.0.48": {
+      "Syncfusion.XlsIO.Net.Core/20.3.0.47": {
         "dependencies": {
-          "Syncfusion.Licensing": "20.3.0.48"
-        },
-        "runtime": {
-          "lib/net5.0-windows7.0/Syncfusion.Shared.Base.dll": {
-            "assemblyVersion": "19.3500.0.48",
-            "fileVersion": "19.3500.0.48"
-          }
-        }
-      },
-      "Syncfusion.Shared.Windows/19.3.0.48": {
-        "dependencies": {
-          "Syncfusion.Licensing": "20.3.0.48",
-          "Syncfusion.Shared.Base": "19.3.0.48"
-        },
-        "runtime": {
-          "lib/net5.0-windows7.0/Syncfusion.Shared.Windows.dll": {
-            "assemblyVersion": "19.3500.0.48",
-            "fileVersion": "19.3500.0.48"
-          }
-        }
-      },
-      "Syncfusion.XlsIO.Net.Core/20.3.0.48": {
-        "dependencies": {
-          "Syncfusion.Compression.Net.Core": "20.3.0.48",
-          "Syncfusion.Licensing": "20.3.0.48"
+          "Syncfusion.Compression.Net.Core": "20.3.0.47",
+          "Syncfusion.Licensing": "20.3.0.47"
         },
         "runtime": {
           "lib/net6.0/Syncfusion.XlsIO.Portable.dll": {
-            "assemblyVersion": "20.3600.0.48",
-            "fileVersion": "20.3600.0.48"
+            "assemblyVersion": "20.3600.0.47",
+            "fileVersion": "20.3600.0.47"
           }
         }
       },
@@ -285,20 +207,6 @@
       "path": "nevrondotnetvision/22.4.12.12",
       "hashPath": "nevrondotnetvision.22.4.12.12.nupkg.sha512"
     },
-    "NevronVision/2019.1.1": {
-      "type": "package",
-      "serviceable": true,
-      "sha512": "sha512-nO17JvbgpGKPnODd6V7ZsBL7SKWfcmO04+1Rz9bVbBLUxNYsYV9PnW3/lHes1H1r7WY50Quuff8gch7GyiThsQ==",
-      "path": "nevronvision/2019.1.1",
-      "hashPath": "nevronvision.2019.1.1.nupkg.sha512"
-    },
-    "Prism.Core/8.1.97": {
-      "type": "package",
-      "serviceable": true,
-      "sha512": "sha512-EP5zrvWddw3eSq25Y7hHnDYdmLZEC2Z/gMrvmHzUuLbitmA1UaS7wQUlSwNr9Km8lzJNCvytFnaGBEFukHgoHg==",
-      "path": "prism.core/8.1.97",
-      "hashPath": "prism.core.8.1.97.nupkg.sha512"
-    },
     "runtime.linux-arm.runtime.native.System.IO.Ports/7.0.0-rc.1.22426.10": {
       "type": "package",
       "serviceable": true,
@@ -341,40 +249,26 @@
       "path": "runtime.osx-x64.runtime.native.system.io.ports/7.0.0-rc.1.22426.10",
       "hashPath": "runtime.osx-x64.runtime.native.system.io.ports.7.0.0-rc.1.22426.10.nupkg.sha512"
     },
-    "Syncfusion.Compression.Net.Core/20.3.0.48": {
+    "Syncfusion.Compression.Net.Core/20.3.0.47": {
       "type": "package",
       "serviceable": true,
-      "sha512": "sha512-Tpu7rnwKHqbwwOhE1nl1uB+H/YLIUE7Ql2OSv2i1+B7YrgY2dP8wPJeDZ7IqJskS7Iad0K8o6VdUZ8rzYL56bA==",
-      "path": "syncfusion.compression.net.core/20.3.0.48",
-      "hashPath": "syncfusion.compression.net.core.20.3.0.48.nupkg.sha512"
+      "sha512": "sha512-NKN8K40O4nxAxMLOk3E2r4Ncs3eQ/TWA/mK3UI9geEzORqpKytTd4/yFNgL7lbP29PTgGc4vz/ovdu4L6tW3Vg==",
+      "path": "syncfusion.compression.net.core/20.3.0.47",
+      "hashPath": "syncfusion.compression.net.core.20.3.0.47.nupkg.sha512"
     },
-    "Syncfusion.Licensing/20.3.0.48": {
+    "Syncfusion.Licensing/20.3.0.47": {
       "type": "package",
       "serviceable": true,
-      "sha512": "sha512-kV0BEn3U1hPAKUFXpsUGQnf/fBIwLI1oKT752Rcfom+IanoVxPLiHOXHsDnXY7PSuMijRN6YOn9by3EFL5lnuw==",
-      "path": "syncfusion.licensing/20.3.0.48",
-      "hashPath": "syncfusion.licensing.20.3.0.48.nupkg.sha512"
+      "sha512": "sha512-ZiRKdTzARG3yB9cNW4K1fKf7yRjG9LalULpou5p9JcNNWXC6bKpTbIFK9BxSpVUpQSN/ak+72boll1CFQPo3Tg==",
+      "path": "syncfusion.licensing/20.3.0.47",
+      "hashPath": "syncfusion.licensing.20.3.0.47.nupkg.sha512"
     },
-    "Syncfusion.Shared.Base/19.3.0.48": {
+    "Syncfusion.XlsIO.Net.Core/20.3.0.47": {
       "type": "package",
       "serviceable": true,
-      "sha512": "sha512-ZqGXJjsvEN/7magLM7fpmAWXL0W0mpBMyb+A5Aj3EmeCfh3uGShL4+zP++XXTKBQNuwIGzmMHfAjUK7TAaqE1g==",
-      "path": "syncfusion.shared.base/19.3.0.48",
-      "hashPath": "syncfusion.shared.base.19.3.0.48.nupkg.sha512"
-    },
-    "Syncfusion.Shared.Windows/19.3.0.48": {
-      "type": "package",
-      "serviceable": true,
-      "sha512": "sha512-ynlMZlitbyKOJY1+xjSA8WbV6EoTYgJz+FcIGrXPQIxNgV4pt2Qt4OMWxpv7Nc5z+vTK4Bpua+88DpuQd+4Upg==",
-      "path": "syncfusion.shared.windows/19.3.0.48",
-      "hashPath": "syncfusion.shared.windows.19.3.0.48.nupkg.sha512"
-    },
-    "Syncfusion.XlsIO.Net.Core/20.3.0.48": {
-      "type": "package",
-      "serviceable": true,
-      "sha512": "sha512-xko9wIxjK656qqExeS8BwsstuRE7smH+ZuRM+nCWho2vm5+TyufGHrc5B+9nkIJOaA5/01H7OFP+3fBgruiyhw==",
-      "path": "syncfusion.xlsio.net.core/20.3.0.48",
-      "hashPath": "syncfusion.xlsio.net.core.20.3.0.48.nupkg.sha512"
+      "sha512": "sha512-L+sxVcV/ShiIOGRu24D+f3bPG+Gqm5JeOqXHdqSKLSy0w29Rf9I6jxfaYX+LyVMRXFl5SE9DBDqoKtGPGMIcwg==",
+      "path": "syncfusion.xlsio.net.core/20.3.0.47",
+      "hashPath": "syncfusion.xlsio.net.core.20.3.0.47.nupkg.sha512"
     },
     "System.Drawing.Common/5.0.0": {
       "type": "package",

@@ -10,11 +10,8 @@
 
   <ItemGroup>
     <PackageReference Include="NevronDotNetVision" Version="22.4.12.12" />
-    <PackageReference Include="NevronVision" Version="2019.1.1" />
-    <PackageReference Include="Prism.Core" Version="8.1.97" />
-    <PackageReference Include="Syncfusion.Licensing" Version="20.3.0.48" />
-    <PackageReference Include="Syncfusion.Shared.Windows" Version="19.3.0.48" />
-    <PackageReference Include="Syncfusion.XlsIO.Net.Core" Version="20.3.0.48" />
+    <PackageReference Include="Syncfusion.Licensing" Version="20.3.0.47" />
+    <PackageReference Include="Syncfusion.XlsIO.Net.Core" Version="20.3.0.47" />
     <PackageReference Include="System.IO.Ports" Version="7.0.0-rc.1.22426.10" />
   </ItemGroup>
 

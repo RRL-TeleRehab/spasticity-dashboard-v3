@@ -40,7 +40,8 @@ namespace SpasticityClientV2
 
         public ChartModel()
         {
-            
+            SyncfusionLicenseProvider.RegisterLicense("NzM1MjU0QDMyMzAyZTMzMmUzMGNzTncwMXBQcUs0d3dPM1lTT0oyc1ZaVkxpTzlsZUs5eTFNTWJYZnF4L1U9");
+            SyncfusionLicenseProvider.RegisterLicense("NRAiBiAaIQQuGjN/V0Z+X09EaFtFVmJLYVB3WmpQdldgdVRMZVVbQX9PIiBoS35RdERjWXZfd3dRR2NeV0V1");
             InitializeComponent();
         }
 
@@ -576,9 +577,9 @@ IApplication application = excelEngine.Excel;
                 string spreadsheetNameDate = DateTime.Now.ToString("dddd dd MMM y HHmmss");
                 string spreadsheetName = spreadsheetNameDate;
                 //I CHANGED THIS
-                //string path = Path.GetDirectoryName(Environment.ProcessPath);
+                string path = Path.GetDirectoryName(Environment.ProcessPath);
             
-                string path = "C:\\Users\\spacebek\\Desktop\\acquiredData";
+                //string path = "C:\\Users\\stonx\\Desktop\\acquiredData";
                 worksheet.DisableSheetCalculations();
                 // convert string to stream
                 byte[] byteArray = Encoding.UTF8.GetBytes(path + "\\" + spreadsheetName + ".xlsx");

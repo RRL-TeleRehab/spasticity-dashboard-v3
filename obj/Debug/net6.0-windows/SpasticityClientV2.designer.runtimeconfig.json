@@ -12,9 +12,10 @@
       }
     ],
     "additionalProbingPaths": [
-      "C:\\Users\\spacebek\\.dotnet\\store\\|arch|\\|tfm|",
-      "C:\\Users\\spacebek\\.nuget\\packages",
-      "C:\\Program Files (x86)\\Microsoft Visual Studio\\Shared\\NuGetPackages"
+      "C:\\Users\\stonx\\.dotnet\\store\\|arch|\\|tfm|",
+      "C:\\Users\\stonx\\.nuget\\packages",
+      "C:\\Program Files (x86)\\Microsoft Visual Studio\\Shared\\NuGetPackages",
+      "C:\\Users\\stonx\\Documents\\NugetPackage\\nevrondotnetvision"
     ],
     "configProperties": {
       "Microsoft.NETCore.DotNetHostPolicy.SetAppPaths": true
