@@ -1,59 +1,27 @@
 {
   "version": 2,
-  "dgSpecHash": "aREkxIKqsHioLRuXK+tFQti39g3IxKoRPcXW2Wk7+zmASu/S5hijDgfY7h9fh5fYCx/NSsean2b10RcJNmZnJw==",
+  "dgSpecHash": "89PafEGHhEgsqSFuAzezyFpnwps3J4z+KWJQu8U1MadMnlEJcoPcnNHEAXnqNbbI5m7Mktanb29uE8jabQ7N3A==",
   "success": true,
   "projectFilePath": "C:\\Users\\stonx\\Documents\\GitHub\\SpasticityClientV2\\SpasticityClientV2.csproj",
   "expectedPackageFiles": [
-    "C:\\Users\\stonx\\.nuget\\packages\\devexpress.data\\22.1.5\\devexpress.data.22.1.5.nupkg.sha512",
-    "C:\\Users\\stonx\\.nuget\\packages\\devexpress.data.de\\22.1.5\\devexpress.data.de.22.1.5.nupkg.sha512",
-    "C:\\Users\\stonx\\.nuget\\packages\\harfbuzzsharp\\2.8.2.1\\harfbuzzsharp.2.8.2.1.nupkg.sha512",
-    "C:\\Users\\stonx\\.nuget\\packages\\harfbuzzsharp.nativeassets.macos\\2.8.2.1\\harfbuzzsharp.nativeassets.macos.2.8.2.1.nupkg.sha512",
-    "C:\\Users\\stonx\\.nuget\\packages\\harfbuzzsharp.nativeassets.win32\\2.8.2.1\\harfbuzzsharp.nativeassets.win32.2.8.2.1.nupkg.sha512",
-    "C:\\Users\\stonx\\.nuget\\packages\\livechartscore\\2.0.0-beta.400\\livechartscore.2.0.0-beta.400.nupkg.sha512",
-    "C:\\Users\\stonx\\.nuget\\packages\\livechartscore.skiasharpview\\2.0.0-beta.400\\livechartscore.skiasharpview.2.0.0-beta.400.nupkg.sha512",
-    "C:\\Users\\stonx\\.nuget\\packages\\livechartscore.skiasharpview.winforms\\2.0.0-beta.400\\livechartscore.skiasharpview.winforms.2.0.0-beta.400.nupkg.sha512",
     "C:\\Users\\stonx\\.nuget\\packages\\microsoft.netcore.platforms\\5.0.0\\microsoft.netcore.platforms.5.0.0.nupkg.sha512",
-    "C:\\Users\\stonx\\.nuget\\packages\\microsoft.netcore.targets\\1.1.0\\microsoft.netcore.targets.1.1.0.nupkg.sha512",
-    "C:\\Users\\stonx\\.nuget\\packages\\microsoft.win32.registry\\4.5.0\\microsoft.win32.registry.4.5.0.nupkg.sha512",
     "C:\\Users\\stonx\\.nuget\\packages\\microsoft.win32.systemevents\\5.0.0\\microsoft.win32.systemevents.5.0.0.nupkg.sha512",
-    "C:\\Users\\stonx\\.nuget\\packages\\netstandard.library\\2.0.3\\netstandard.library.2.0.3.nupkg.sha512",
     "C:\\Users\\stonx\\.nuget\\packages\\nevrondotnetvision\\22.4.12.12\\nevrondotnetvision.22.4.12.12.nupkg.sha512",
     "C:\\Users\\stonx\\.nuget\\packages\\nevronvision\\2019.1.1\\nevronvision.2019.1.1.nupkg.sha512",
-    "C:\\Users\\stonx\\.nuget\\packages\\opentk\\3.1.0\\opentk.3.1.0.nupkg.sha512",
-    "C:\\Users\\stonx\\.nuget\\packages\\opentk.glcontrol\\3.1.0\\opentk.glcontrol.3.1.0.nupkg.sha512",
     "C:\\Users\\stonx\\.nuget\\packages\\prism.core\\8.1.97\\prism.core.8.1.97.nupkg.sha512",
-    "C:\\Users\\stonx\\.nuget\\packages\\runtime.linux-arm.runtime.native.system.io.ports\\7.0.0-preview.7.22375.6\\runtime.linux-arm.runtime.native.system.io.ports.7.0.0-preview.7.22375.6.nupkg.sha512",
-    "C:\\Users\\stonx\\.nuget\\packages\\runtime.linux-arm64.runtime.native.system.io.ports\\7.0.0-preview.7.22375.6\\runtime.linux-arm64.runtime.native.system.io.ports.7.0.0-preview.7.22375.6.nupkg.sha512",
-    "C:\\Users\\stonx\\.nuget\\packages\\runtime.linux-x64.runtime.native.system.io.ports\\7.0.0-preview.7.22375.6\\runtime.linux-x64.runtime.native.system.io.ports.7.0.0-preview.7.22375.6.nupkg.sha512",
-    "C:\\Users\\stonx\\.nuget\\packages\\runtime.native.system.io.ports\\7.0.0-preview.7.22375.6\\runtime.native.system.io.ports.7.0.0-preview.7.22375.6.nupkg.sha512",
-    "C:\\Users\\stonx\\.nuget\\packages\\runtime.osx-arm64.runtime.native.system.io.ports\\7.0.0-preview.7.22375.6\\runtime.osx-arm64.runtime.native.system.io.ports.7.0.0-preview.7.22375.6.nupkg.sha512",
-    "C:\\Users\\stonx\\.nuget\\packages\\runtime.osx-x64.runtime.native.system.io.ports\\7.0.0-preview.7.22375.6\\runtime.osx-x64.runtime.native.system.io.ports.7.0.0-preview.7.22375.6.nupkg.sha512",
-    "C:\\Users\\stonx\\.nuget\\packages\\skiasharp\\2.88.1\\skiasharp.2.88.1.nupkg.sha512",
-    "C:\\Users\\stonx\\.nuget\\packages\\skiasharp.harfbuzz\\2.88.1\\skiasharp.harfbuzz.2.88.1.nupkg.sha512",
-    "C:\\Users\\stonx\\.nuget\\packages\\skiasharp.nativeassets.macos\\2.88.1\\skiasharp.nativeassets.macos.2.88.1.nupkg.sha512",
-    "C:\\Users\\stonx\\.nuget\\packages\\skiasharp.nativeassets.win32\\2.88.1\\skiasharp.nativeassets.win32.2.88.1.nupkg.sha512",
-    "C:\\Users\\stonx\\.nuget\\packages\\skiasharp.views.desktop.common\\2.88.1\\skiasharp.views.desktop.common.2.88.1.nupkg.sha512",
-    "C:\\Users\\stonx\\.nuget\\packages\\skiasharp.views.windowsforms\\2.88.1\\skiasharp.views.windowsforms.2.88.1.nupkg.sha512",
-    "C:\\Users\\stonx\\.nuget\\packages\\syncfusion.compression.net.core\\20.2.0.44\\syncfusion.compression.net.core.20.2.0.44.nupkg.sha512",
-    "C:\\Users\\stonx\\.nuget\\packages\\syncfusion.licensing\\20.2.0.44\\syncfusion.licensing.20.2.0.44.nupkg.sha512",
+    "C:\\Users\\stonx\\.nuget\\packages\\runtime.linux-arm.runtime.native.system.io.ports\\7.0.0-rc.1.22426.10\\runtime.linux-arm.runtime.native.system.io.ports.7.0.0-rc.1.22426.10.nupkg.sha512",
+    "C:\\Users\\stonx\\.nuget\\packages\\runtime.linux-arm64.runtime.native.system.io.ports\\7.0.0-rc.1.22426.10\\runtime.linux-arm64.runtime.native.system.io.ports.7.0.0-rc.1.22426.10.nupkg.sha512",
+    "C:\\Users\\stonx\\.nuget\\packages\\runtime.linux-x64.runtime.native.system.io.ports\\7.0.0-rc.1.22426.10\\runtime.linux-x64.runtime.native.system.io.ports.7.0.0-rc.1.22426.10.nupkg.sha512",
+    "C:\\Users\\stonx\\.nuget\\packages\\runtime.native.system.io.ports\\7.0.0-rc.1.22426.10\\runtime.native.system.io.ports.7.0.0-rc.1.22426.10.nupkg.sha512",
+    "C:\\Users\\stonx\\.nuget\\packages\\runtime.osx-arm64.runtime.native.system.io.ports\\7.0.0-rc.1.22426.10\\runtime.osx-arm64.runtime.native.system.io.ports.7.0.0-rc.1.22426.10.nupkg.sha512",
+    "C:\\Users\\stonx\\.nuget\\packages\\runtime.osx-x64.runtime.native.system.io.ports\\7.0.0-rc.1.22426.10\\runtime.osx-x64.runtime.native.system.io.ports.7.0.0-rc.1.22426.10.nupkg.sha512",
+    "C:\\Users\\stonx\\.nuget\\packages\\syncfusion.compression.net.core\\20.3.0.48\\syncfusion.compression.net.core.20.3.0.48.nupkg.sha512",
+    "C:\\Users\\stonx\\.nuget\\packages\\syncfusion.licensing\\20.3.0.48\\syncfusion.licensing.20.3.0.48.nupkg.sha512",
     "C:\\Users\\stonx\\.nuget\\packages\\syncfusion.shared.base\\19.3.0.48\\syncfusion.shared.base.19.3.0.48.nupkg.sha512",
     "C:\\Users\\stonx\\.nuget\\packages\\syncfusion.shared.windows\\19.3.0.48\\syncfusion.shared.windows.19.3.0.48.nupkg.sha512",
-    "C:\\Users\\stonx\\.nuget\\packages\\syncfusion.xlsio.net.core\\20.2.0.44\\syncfusion.xlsio.net.core.20.2.0.44.nupkg.sha512",
-    "C:\\Users\\stonx\\.nuget\\packages\\system.componentmodel.annotations\\4.4.0\\system.componentmodel.annotations.4.4.0.nupkg.sha512",
+    "C:\\Users\\stonx\\.nuget\\packages\\syncfusion.xlsio.net.core\\20.3.0.48\\syncfusion.xlsio.net.core.20.3.0.48.nupkg.sha512",
     "C:\\Users\\stonx\\.nuget\\packages\\system.drawing.common\\5.0.0\\system.drawing.common.5.0.0.nupkg.sha512",
-    "C:\\Users\\stonx\\.nuget\\packages\\system.io\\4.3.0\\system.io.4.3.0.nupkg.sha512",
-    "C:\\Users\\stonx\\.nuget\\packages\\system.io.ports\\7.0.0-preview.7.22375.6\\system.io.ports.7.0.0-preview.7.22375.6.nupkg.sha512",
-    "C:\\Users\\stonx\\.nuget\\packages\\system.reflection\\4.3.0\\system.reflection.4.3.0.nupkg.sha512",
-    "C:\\Users\\stonx\\.nuget\\packages\\system.reflection.emit\\4.3.0\\system.reflection.emit.4.3.0.nupkg.sha512",
-    "C:\\Users\\stonx\\.nuget\\packages\\system.reflection.emit.ilgeneration\\4.3.0\\system.reflection.emit.ilgeneration.4.3.0.nupkg.sha512",
-    "C:\\Users\\stonx\\.nuget\\packages\\system.reflection.emit.lightweight\\4.3.0\\system.reflection.emit.lightweight.4.3.0.nupkg.sha512",
-    "C:\\Users\\stonx\\.nuget\\packages\\system.reflection.primitives\\4.3.0\\system.reflection.primitives.4.3.0.nupkg.sha512",
-    "C:\\Users\\stonx\\.nuget\\packages\\system.runtime\\4.3.0\\system.runtime.4.3.0.nupkg.sha512",
-    "C:\\Users\\stonx\\.nuget\\packages\\system.security.accesscontrol\\4.5.0\\system.security.accesscontrol.4.5.0.nupkg.sha512",
-    "C:\\Users\\stonx\\.nuget\\packages\\system.security.principal.windows\\4.5.0\\system.security.principal.windows.4.5.0.nupkg.sha512",
-    "C:\\Users\\stonx\\.nuget\\packages\\system.text.encoding\\4.3.0\\system.text.encoding.4.3.0.nupkg.sha512",
-    "C:\\Users\\stonx\\.nuget\\packages\\system.text.encoding.codepages\\4.4.0\\system.text.encoding.codepages.4.4.0.nupkg.sha512",
-    "C:\\Users\\stonx\\.nuget\\packages\\system.threading.tasks\\4.3.0\\system.threading.tasks.4.3.0.nupkg.sha512"
+    "C:\\Users\\stonx\\.nuget\\packages\\system.io.ports\\7.0.0-rc.1.22426.10\\system.io.ports.7.0.0-rc.1.22426.10.nupkg.sha512"
   ],
   "logs": [
     {
@@ -62,26 +30,6 @@
       "warningLevel": 1,
       "message": "Package 'NevronVision 2019.1.1' was restored using '.NETFramework,Version=v4.6.1, .NETFramework,Version=v4.6.2, .NETFramework,Version=v4.7, .NETFramework,Version=v4.7.1, .NETFramework,Version=v4.7.2, .NETFramework,Version=v4.8' instead of the project target framework 'net6.0-windows7.0'. This package may not be fully compatible with your project.",
       "libraryId": "NevronVision",
-      "targetGraphs": [
-        "net6.0-windows7.0"
-      ]
-    },
-    {
-      "code": "NU1701",
-      "level": "Warning",
-      "warningLevel": 1,
-      "message": "Package 'OpenTK 3.1.0' was restored using '.NETFramework,Version=v4.6.1, .NETFramework,Version=v4.6.2, .NETFramework,Version=v4.7, .NETFramework,Version=v4.7.1, .NETFramework,Version=v4.7.2, .NETFramework,Version=v4.8' instead of the project target framework 'net6.0-windows7.0'. This package may not be fully compatible with your project.",
-      "libraryId": "OpenTK",
-      "targetGraphs": [
-        "net6.0-windows7.0"
-      ]
-    },
-    {
-      "code": "NU1701",
-      "level": "Warning",
-      "warningLevel": 1,
-      "message": "Package 'OpenTK.GLControl 3.1.0' was restored using '.NETFramework,Version=v4.6.1, .NETFramework,Version=v4.6.2, .NETFramework,Version=v4.7, .NETFramework,Version=v4.7.1, .NETFramework,Version=v4.7.2, .NETFramework,Version=v4.8' instead of the project target framework 'net6.0-windows7.0'. This package may not be fully compatible with your project.",
-      "libraryId": "OpenTK.GLControl",
       "targetGraphs": [
         "net6.0-windows7.0"
       ]

@@ -9,16 +9,13 @@
   </PropertyGroup>
 
   <ItemGroup>
-    <PackageReference Include="DevExpress.Data" Version="22.1.5" />
-    <PackageReference Include="DevExpress.Data.de" Version="22.1.5" />
-    <PackageReference Include="LiveChartsCore.SkiaSharpView.WinForms" Version="2.0.0-beta.400" />
     <PackageReference Include="NevronDotNetVision" Version="22.4.12.12" />
     <PackageReference Include="NevronVision" Version="2019.1.1" />
     <PackageReference Include="Prism.Core" Version="8.1.97" />
-    <PackageReference Include="Syncfusion.Licensing" Version="20.2.0.44" />
+    <PackageReference Include="Syncfusion.Licensing" Version="20.3.0.48" />
     <PackageReference Include="Syncfusion.Shared.Windows" Version="19.3.0.48" />
-    <PackageReference Include="Syncfusion.XlsIO.Net.Core" Version="20.2.0.44" />
-    <PackageReference Include="System.IO.Ports" Version="7.0.0-preview.7.22375.6" />
+    <PackageReference Include="Syncfusion.XlsIO.Net.Core" Version="20.3.0.48" />
+    <PackageReference Include="System.IO.Ports" Version="7.0.0-rc.1.22426.10" />
   </ItemGroup>
 
   <ItemGroup>

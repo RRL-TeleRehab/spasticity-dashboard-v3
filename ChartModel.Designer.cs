@@ -30,7 +30,6 @@
         {
             this.components = new System.ComponentModel.Container();
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(ChartModel));
-            this.cartesianChart1 = new LiveChartsCore.SkiaSharpView.WinForms.CartesianChart();
             this.comboBox1 = new System.Windows.Forms.ComboBox();
             this.button1 = new System.Windows.Forms.Button();
             this.button2 = new System.Windows.Forms.Button();
@@ -42,15 +41,10 @@
             this.nChartControl1 = new Nevron.Chart.WinForm.NChartControl();
             this.nChartControl2 = new Nevron.Chart.WinForm.NChartControl();
             this.nChartControl3 = new Nevron.Chart.WinForm.NChartControl();
+            this.button3 = new System.Windows.Forms.Button();
+            this.button5 = new System.Windows.Forms.Button();
             this.SuspendLayout();
-            // 
-            // cartesianChart1
-            // 
-            this.cartesianChart1.Font = new System.Drawing.Font("Cambria", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
-            this.cartesianChart1.Location = new System.Drawing.Point(54, 35);
-            this.cartesianChart1.Name = "cartesianChart1";
-            this.cartesianChart1.Size = new System.Drawing.Size(346, 262);
-            this.cartesianChart1.TabIndex = 0;
+           
             // 
             // comboBox1
             // 
@@ -149,9 +143,31 @@
             this.nChartControl3.TabIndex = 8;
             this.nChartControl3.Text = "nChartControl3";
             // 
+            // button3
+            // 
+            this.button3.Location = new System.Drawing.Point(513, 158);
+            this.button3.Name = "button3";
+            this.button3.Size = new System.Drawing.Size(102, 23);
+            this.button3.TabIndex = 9;
+            this.button3.Text = "Save Data";
+            this.button3.UseVisualStyleBackColor = true;
+            this.button3.Click += new System.EventHandler(this.button3_Click_1);
+            // 
+            // button5
+            // 
+            this.button5.Location = new System.Drawing.Point(513, 129);
+            this.button5.Name = "button5";
+            this.button5.Size = new System.Drawing.Size(102, 23);
+            this.button5.TabIndex = 10;
+            this.button5.Text = "Stop";
+            this.button5.UseVisualStyleBackColor = true;
+            this.button5.Click += new System.EventHandler(this.button5_Click);
+            // 
             // ChartModel
             // 
             this.ClientSize = new System.Drawing.Size(685, 372);
+            this.Controls.Add(this.button5);
+            this.Controls.Add(this.button3);
             this.Controls.Add(this.nChartControl3);
             this.Controls.Add(this.nChartControl2);
             this.Controls.Add(this.nChartControl1);
@@ -165,7 +181,6 @@
 
         #endregion
 
-        private LiveChartsCore.SkiaSharpView.WinForms.CartesianChart cartesianChart1;
         private ComboBox comboBox1;
         private Button button1;
         private Button button2;
@@ -177,5 +192,7 @@
         private Nevron.Chart.WinForm.NChartControl nChartControl1;
         private Nevron.Chart.WinForm.NChartControl nChartControl2;
         private Nevron.Chart.WinForm.NChartControl nChartControl3;
+        private Button button3;
+        private Button button5;
     }
 }
