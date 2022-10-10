@@ -575,7 +575,7 @@ IApplication application = excelEngine.Excel;
                 //string spreadsheetNamePath = "acquiredData\\";
                 //string spreadsheetNamePath = "C:\\Users\\stonx\\Desktop\\acquiredData";
                 string spreadsheetNameDate = DateTime.Now.ToString("dddd dd MMM y HHmmss");
-                string spreadsheetName = spreadsheetNameDate;
+                string spreadsheetName = spreadsheetNameDate + ".xlsx";
                 //I CHANGED THIS
                 string path = Path.GetDirectoryName(Environment.ProcessPath);
             
