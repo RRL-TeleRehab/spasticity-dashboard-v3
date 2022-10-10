@@ -589,20 +589,27 @@ IApplication application = excelEngine.Excel;
                     //workbook.SaveAs(spreadsheetName);
                     //workbook.SaveAs(spreadsheetName);
 
-                    using (MemoryStream stream = new MemoryStream())
-                {
-                    //stream.Write(byteArray, 0, byteArray.Length);
-                        stream.Write(byteArray);
-                        workbook.SaveAs(stream);
-                }
+                //    using (MemoryStream stream = new MemoryStream())
+                //{
+                //    //stream.Write(byteArray, 0, byteArray.Length);
+                //        stream.Write(byteArray);
+                //        workbook.SaveAs(stream);
+                //}
+                    FileStream stream = new FileStream(spreadsheetName, FileMode.Create, FileAccess.ReadWrite);
+                    workbook.SaveAs(stream);
 
-                #region View the Workbook
+                    #region View the Workbook
 
-                Process.Start(path + "\\" + spreadsheetName + ".xlsx");
-
-                // Now that the file has been created, delete contents of SessionDatas
-                // Thread.Sleep(500);
-                SessionDatas.Clear();
+                    //Process.Start(path + "\\" + spreadsheetName + ".xlsx");
+                    System.Diagnostics.Process process = new System.Diagnostics.Process();
+                    process.StartInfo = new System.Diagnostics.ProcessStartInfo(spreadsheetName)
+                    {
+                        UseShellExecute = true
+                    };
+                    process.Start();
+                    // Now that the file has been created, delete contents of SessionDatas
+                    // Thread.Sleep(500);
+                    SessionDatas.Clear();
                 #endregion
                 }
                 
