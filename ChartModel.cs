@@ -98,6 +98,15 @@ namespace SpasticityClientV2
             emgChart = (NCartesianChart)nChartControl2.Charts[0];
             angleChart = (NCartesianChart)nChartControl3.Charts[0];
 
+            NAxis forceAxis = forceChart.Axis(StandardAxis.PrimaryY);
+            forceAxis.View = new NRangeAxisView(new NRange1DD(0, 500));
+
+            NAxis emgAxis = emgChart.Axis(StandardAxis.PrimaryY);
+            emgAxis.View = new NRangeAxisView(new NRange1DD(0, 500));
+
+            NAxis angleAxis = angleChart.Axis(StandardAxis.PrimaryY);
+            angleAxis.View = new NRangeAxisView(new NRange1DD(0, 280));
+
             nChartControl1.Charts.Clear();
             nChartControl2.Charts.Clear();
             nChartControl3.Charts.Clear();
@@ -120,8 +129,11 @@ namespace SpasticityClientV2
             angleChart.Width = wid;
 
             forceSeries.DataLabelStyle.Visible = false;
+            forceSeries.Legend.Mode = SeriesLegendMode.None;
             emgSeries.DataLabelStyle.Visible = false;
+            emgSeries.Legend.Mode = SeriesLegendMode.None;
             angleSeries.DataLabelStyle.Visible = false;
+            angleSeries.Legend.Mode = SeriesLegendMode.None;
 
             var bufferLimit = 100;
             SessionDatas = new List<SessionData>();
@@ -266,13 +278,14 @@ namespace SpasticityClientV2
                 port.Close();
             }
         }
+
         public void SaveData()
         {
             if (!IsRunning)
             {
                 using (ExcelEngine excelEngine = new ExcelEngine())
                 {
-IApplication application = excelEngine.Excel;
+                IApplication application = excelEngine.Excel;
                 application.DefaultVersion = ExcelVersion.Excel2016;
 
                 //Create a workbook and enable calculations
@@ -603,10 +616,12 @@ IApplication application = excelEngine.Excel;
                 }
             }
         }
+
         private void button3_Click_1(object sender, EventArgs e)
         {
             SaveData();
         }
+
         private void button5_Click(object sender, EventArgs e)
         {   
             IsCancelled = true;

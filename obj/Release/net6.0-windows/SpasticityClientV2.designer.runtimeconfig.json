@@ -19,6 +19,7 @@
       "C:\\Program Files (x86)\\Nevron Software\\Nevron Open Vision 2022.3\\NugetPackage"
     ],
     "configProperties": {
+      "System.Reflection.Metadata.MetadataUpdater.IsSupported": false,
       "Microsoft.NETCore.DotNetHostPolicy.SetAppPaths": true
     }
   }
