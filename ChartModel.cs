@@ -33,9 +33,13 @@ namespace SpasticityClientV2
         public NLineSeries angleSeries;
         public SerialPort port;
         public Thread portThread;
+        List<System.Drawing.Rectangle> _arr_control_storage = new List<System.Drawing.Rectangle>();
+        private bool showRowHeader = false;
+
+        private float _fontsize { get; set; }
 
         public bool IsRunning { get; set; }
-
+        clsResize _form_resize;
         public List<SessionData> SessionDatas { get; set; }
 
         public ChartModel()
@@ -43,6 +47,18 @@ namespace SpasticityClientV2
             SyncfusionLicenseProvider.RegisterLicense("NzM1MjU0QDMyMzAyZTMzMmUzMGNzTncwMXBQcUs0d3dPM1lTT0oyc1ZaVkxpTzlsZUs5eTFNTWJYZnF4L1U9");
             SyncfusionLicenseProvider.RegisterLicense("NRAiBiAaIQQuGjN/V0Z+X09EaFtFVmJLYVB3WmpQdldgdVRMZVVbQX9PIiBoS35RdERjWXZfd3dRR2NeV0V1");
             InitializeComponent();
+            _form_resize = new clsResize(this); //I put this after the initialize event to be sure that all controls are initialized properly
+            this.Load += new EventHandler(_Load); //This will be called after the initialization // form_load
+            this.Resize += new EventHandler(_Resize); //form_resize
+        }
+
+        private void _Load(object sender, EventArgs e)
+        {
+            _form_resize._get_initial_size();
+        }
+        private void _Resize(object sender, EventArgs e)
+        {
+            _form_resize._resize();
         }
 
         public void getAvailablePorts()
