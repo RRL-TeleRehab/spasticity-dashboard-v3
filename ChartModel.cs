@@ -35,9 +35,7 @@ namespace SpasticityClientV2
         public Thread portThread;
         List<System.Drawing.Rectangle> _arr_control_storage = new List<System.Drawing.Rectangle>();
         private bool showRowHeader = false;
-
         private float _fontsize { get; set; }
-
         public bool IsRunning { get; set; }
         clsResize _form_resize;
         public List<SessionData> SessionDatas { get; set; }
@@ -50,34 +48,25 @@ namespace SpasticityClientV2
             _form_resize = new clsResize(this); //I put this after the initialize event to be sure that all controls are initialized properly
             this.Load += new EventHandler(_Load); //This will be called after the initialization // form_load
             this.Resize += new EventHandler(_Resize); //form_resize
+            string[] ports = SerialPort.GetPortNames();
+            comboBox2.Items.AddRange(ports);
         }
 
         private void _Load(object sender, EventArgs e)
         {
             _form_resize._get_initial_size();
         }
+
         private void _Resize(object sender, EventArgs e)
         {
             _form_resize._resize();
-        }
-
-        public void getAvailablePorts()
-        {
-            string[] ports = SerialPort.GetPortNames();
-            comboBox2.Items.AddRange(ports);
-        }
-
-        private void button3_Click(object sender, EventArgs e)
-        {
-            string[] ports = SerialPort.GetPortNames();
-            comboBox2.Items.AddRange(ports);
         }
 
         private void button4_Click(object sender, EventArgs e)
         {
             if (comboBox2.SelectedIndex > -1)
             {
-                MessageBox.Show(String.Format("You selected port '{0}'", comboBox2.SelectedItem));
+                //MessageBox.Show(String.Format("You selected port '{0}'", comboBox2.SelectedItem));
                 Connect(comboBox2.SelectedItem.ToString());
             }
             else

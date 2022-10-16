@@ -28,16 +28,13 @@
         /// </summary>
         private void InitializeComponent()
         {
-            this.components = new System.ComponentModel.Container();
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(ChartModel));
             this.comboBox1 = new System.Windows.Forms.ComboBox();
             this.button1 = new System.Windows.Forms.Button();
             this.button2 = new System.Windows.Forms.Button();
             this.serialData = new System.Windows.Forms.RichTextBox();
             this.comboBox2 = new System.Windows.Forms.ComboBox();
-            this.GetPorts = new System.Windows.Forms.Button();
             this.button4 = new System.Windows.Forms.Button();
-            this.timer1 = new System.Windows.Forms.Timer(this.components);
             this.nChartControl1 = new Nevron.Chart.WinForm.NChartControl();
             this.nChartControl2 = new Nevron.Chart.WinForm.NChartControl();
             this.nChartControl3 = new Nevron.Chart.WinForm.NChartControl();
@@ -82,29 +79,15 @@
             this.comboBox2.Size = new System.Drawing.Size(102, 23);
             this.comboBox2.TabIndex = 3;
             // 
-            // GetPorts
-            // 
-            this.GetPorts.Location = new System.Drawing.Point(513, 70);
-            this.GetPorts.Name = "GetPorts";
-            this.GetPorts.Size = new System.Drawing.Size(102, 23);
-            this.GetPorts.TabIndex = 4;
-            this.GetPorts.Text = "Get COM Ports";
-            this.GetPorts.UseVisualStyleBackColor = true;
-            this.GetPorts.Click += new System.EventHandler(this.button3_Click);
-            // 
             // button4
             // 
-            this.button4.Location = new System.Drawing.Point(513, 100);
+            this.button4.Location = new System.Drawing.Point(513, 69);
             this.button4.Name = "button4";
             this.button4.Size = new System.Drawing.Size(102, 23);
             this.button4.TabIndex = 5;
             this.button4.Text = "Read";
             this.button4.UseVisualStyleBackColor = true;
             this.button4.Click += new System.EventHandler(this.button4_Click);
-            // 
-            // timer1
-            // 
-            this.timer1.Interval = 20;
             // 
             // nChartControl1
             // 
@@ -145,7 +128,7 @@
             // 
             // button3
             // 
-            this.button3.Location = new System.Drawing.Point(513, 158);
+            this.button3.Location = new System.Drawing.Point(513, 129);
             this.button3.Name = "button3";
             this.button3.Size = new System.Drawing.Size(102, 23);
             this.button3.TabIndex = 9;
@@ -155,7 +138,7 @@
             // 
             // button5
             // 
-            this.button5.Location = new System.Drawing.Point(513, 129);
+            this.button5.Location = new System.Drawing.Point(513, 98);
             this.button5.Name = "button5";
             this.button5.Size = new System.Drawing.Size(102, 23);
             this.button5.TabIndex = 10;
@@ -172,7 +155,6 @@
             this.Controls.Add(this.nChartControl2);
             this.Controls.Add(this.nChartControl1);
             this.Controls.Add(this.button4);
-            this.Controls.Add(this.GetPorts);
             this.Controls.Add(this.comboBox2);
             this.Name = "ChartModel";
             this.ResumeLayout(false);
@@ -186,9 +168,7 @@
         private Button button2;
         private RichTextBox serialData;
         private ComboBox comboBox2;
-        private Button GetPorts;
         private Button button4;
-        private System.Windows.Forms.Timer timer1;
         private Nevron.Chart.WinForm.NChartControl nChartControl1;
         private Nevron.Chart.WinForm.NChartControl nChartControl2;
         private Nevron.Chart.WinForm.NChartControl nChartControl3;
