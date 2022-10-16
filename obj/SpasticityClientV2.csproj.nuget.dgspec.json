@@ -47,6 +47,10 @@
         "net6.0-windows7.0": {
           "targetAlias": "net6.0-windows",
           "dependencies": {
+            "MaterialSkin.2": {
+              "target": "Package",
+              "version": "[2.3.1, )"
+            },
             "NevronDotNetVision": {
               "target": "Package",
               "version": "[22.4.12.12, )"

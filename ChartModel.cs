@@ -1,27 +1,19 @@
 using System.IO.Ports;
-using System.Threading.Tasks;
-using System.Windows.Forms;
+
 using Syncfusion.XlsIO;
 using Syncfusion.Licensing;
-using System;
-using System.Collections.Generic;
-using System.Collections.ObjectModel;
-using System.ComponentModel;
-using System.Diagnostics;
-using System.Linq;
-using System.Runtime.CompilerServices;
+
 using System.Text;
-using System.Threading.Tasks;
-using System.Threading;
-using System.Data;
+
 using Nevron.GraphicsCore;
 using Nevron.Chart;
-using Nevron.Chart.WinForm;
-using Nevron.Chart.Windows;
+
+using MaterialSkin.Controls;
+using MaterialSkin;
 
 namespace SpasticityClientV2
 {
-    public partial class ChartModel : Form
+    public partial class ChartModel : MaterialForm
     {
         private bool IsCancelled = false;
         private int keepRecords = 100;
@@ -33,7 +25,7 @@ namespace SpasticityClientV2
         public NLineSeries angleSeries;
         public SerialPort port;
         public Thread portThread;
-        List<System.Drawing.Rectangle> _arr_control_storage = new List<System.Drawing.Rectangle>();
+
         private bool showRowHeader = false;
         private float _fontsize { get; set; }
         public bool IsRunning { get; set; }
@@ -48,8 +40,20 @@ namespace SpasticityClientV2
             _form_resize = new clsResize(this); //I put this after the initialize event to be sure that all controls are initialized properly
             this.Load += new EventHandler(_Load); //This will be called after the initialization // form_load
             this.Resize += new EventHandler(_Resize); //form_resize
+            this.Text = "Spasticity Dashboard V2.0";
             string[] ports = SerialPort.GetPortNames();
-            comboBox2.Items.AddRange(ports);
+            materialComboBox1.Items.AddRange(ports);
+            var materialSkinManager = MaterialSkinManager.Instance;
+            materialSkinManager.AddFormToManage(this);
+            materialSkinManager.Theme = MaterialSkinManager.Themes.LIGHT;
+            materialSkinManager.ColorScheme = new ColorScheme(Primary.BlueGrey800, Primary.BlueGrey900, Primary.BlueGrey500, Accent.LightBlue200, TextShade.WHITE);
+            materialButton1.AutoSizeMode = AutoSizeMode.GrowOnly;
+            materialButton2.AutoSizeMode = AutoSizeMode.GrowOnly;
+            materialButton3.AutoSizeMode = AutoSizeMode.GrowOnly;
+            materialButton1.Enabled = false;
+            materialButton2.Enabled = false;
+            materialButton3.Enabled = false;
+            materialComboBox1.Text = "Choose Port";
         }
 
         private void _Load(object sender, EventArgs e)
@@ -60,19 +64,6 @@ namespace SpasticityClientV2
         private void _Resize(object sender, EventArgs e)
         {
             _form_resize._resize();
-        }
-
-        private void button4_Click(object sender, EventArgs e)
-        {
-            if (comboBox2.SelectedIndex > -1)
-            {
-                //MessageBox.Show(String.Format("You selected port '{0}'", comboBox2.SelectedItem));
-                Connect(comboBox2.SelectedItem.ToString());
-            }
-            else
-            {
-                MessageBox.Show("Please select a port first");
-            }
         }
 
         private void Connect(string portName)
@@ -104,13 +95,25 @@ namespace SpasticityClientV2
             angleChart = (NCartesianChart)nChartControl3.Charts[0];
 
             NAxis forceAxis = forceChart.Axis(StandardAxis.PrimaryY);
-            forceAxis.View = new NRangeAxisView(new NRange1DD(0, 500));
+            NAxis forceXAxis = forceChart.Axis(StandardAxis.PrimaryX);
+            forceAxis.View = new NRangeAxisView(new NRange1DD(0, 250));
+            forceAxis.ScaleConfigurator.MajorGridStyle.SetShowAtWall(ChartWallType.Back, false);
+            forceAxis.ScaleConfigurator.Title.Text = "Force (N)";
+            forceXAxis.ScaleConfigurator.OuterMajorTickStyle.Visible = false;
 
             NAxis emgAxis = emgChart.Axis(StandardAxis.PrimaryY);
-            emgAxis.View = new NRangeAxisView(new NRange1DD(0, 500));
+            NAxis emgXAxis = forceChart.Axis(StandardAxis.PrimaryX);
+            emgAxis.View = new NRangeAxisView(new NRange1DD(0, 250));
+            emgAxis.ScaleConfigurator.MajorGridStyle.SetShowAtWall(ChartWallType.Back, false);
+            emgAxis.ScaleConfigurator.Title.Text = "EMG (mV)";
+            emgXAxis.ScaleConfigurator.OuterMajorTickStyle.Visible = false;
 
             NAxis angleAxis = angleChart.Axis(StandardAxis.PrimaryY);
-            angleAxis.View = new NRangeAxisView(new NRange1DD(0, 280));
+            NAxis angleXAxis = forceChart.Axis(StandardAxis.PrimaryX);
+            angleAxis.View = new NRangeAxisView(new NRange1DD(0, 200));
+            angleAxis.ScaleConfigurator.MajorGridStyle.SetShowAtWall(ChartWallType.Back, false);
+            angleAxis.ScaleConfigurator.Title.Text = "Angle (°)";
+            angleXAxis.ScaleConfigurator.OuterMajorTickStyle.Visible = false;
 
             nChartControl1.Charts.Clear();
             nChartControl2.Charts.Clear();
@@ -622,20 +625,42 @@ namespace SpasticityClientV2
             }
         }
 
-        private void button3_Click_1(object sender, EventArgs e)
+        private void materialButton1_Click(object sender, EventArgs e)
         {
-            SaveData();
+            if (materialComboBox1.SelectedIndex > -1)
+            {
+                //MessageBox.Show(String.Format("You selected port '{0}'", materialComboBox1.SelectedItem));
+                Connect(materialComboBox1.SelectedItem.ToString());
+            }
+            else
+            {
+                MessageBox.Show("Please select a port first");
+            }
+            materialButton1.Enabled = false;
+            materialButton2.Enabled = true;
+            materialButton3.Enabled = false;
         }
 
-        private void button5_Click(object sender, EventArgs e)
-        {   
+        private void materialButton2_Click(object sender, EventArgs e)
+        {
             IsCancelled = true;
             IsRunning = false;
+            materialButton1.Enabled = false;
+            materialButton2.Enabled = false;
+            materialButton3.Enabled = true;
         }
 
-        private void nChartControl1_Click(object sender, EventArgs e)
+        private void materialButton3_Click(object sender, EventArgs e)
         {
+            SaveData();
+            materialButton3.Enabled = false;
+        }
 
+        private void materialComboBox1_SelectedIndexChanged(object sender, EventArgs e)
+        {
+            materialButton1.Enabled = true;
+            materialButton2.Enabled = false;
+            materialButton3.Enabled = false;
         }
     }
 }

@@ -1,9 +1,10 @@
 {
   "version": 2,
-  "dgSpecHash": "hsk0AMxL6ltmScwrXVlf/JwQrpUMBtEGlsHqWdYgmsfpnIYrOUntPtcbwOvAOZfz0RMWPfq74werOoHw+bmBqw==",
+  "dgSpecHash": "JXx5oH2Gw0BjmcZkF0l3YSRGOXYEV7MmR8RjM3LJcDMjGNVmzsyENN3Y8VIx0897roT/Uk7Ic23aRdbJNyfu6w==",
   "success": true,
   "projectFilePath": "C:\\Users\\stonx\\Documents\\GitHub\\SpasticityClientV2\\SpasticityClientV2.csproj",
   "expectedPackageFiles": [
+    "C:\\Users\\stonx\\.nuget\\packages\\materialskin.2\\2.3.1\\materialskin.2.2.3.1.nupkg.sha512",
     "C:\\Users\\stonx\\.nuget\\packages\\microsoft.netcore.platforms\\5.0.0\\microsoft.netcore.platforms.5.0.0.nupkg.sha512",
     "C:\\Users\\stonx\\.nuget\\packages\\microsoft.win32.systemevents\\5.0.0\\microsoft.win32.systemevents.5.0.0.nupkg.sha512",
     "C:\\Users\\stonx\\.nuget\\packages\\nevrondotnetvision\\22.4.12.12\\nevrondotnetvision.22.4.12.12.nupkg.sha512",
