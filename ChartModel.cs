@@ -100,16 +100,17 @@ namespace SpasticityClientV2
             forceAxis.ScaleConfigurator.MajorGridStyle.SetShowAtWall(ChartWallType.Back, false);
             forceAxis.ScaleConfigurator.Title.Text = "Force (N)";
             forceXAxis.ScaleConfigurator.OuterMajorTickStyle.Visible = false;
+            forceXAxis.ScaleConfigurator.
 
             NAxis emgAxis = emgChart.Axis(StandardAxis.PrimaryY);
-            NAxis emgXAxis = forceChart.Axis(StandardAxis.PrimaryX);
+            NAxis emgXAxis = emgChart.Axis(StandardAxis.PrimaryX);
             emgAxis.View = new NRangeAxisView(new NRange1DD(0, 250));
             emgAxis.ScaleConfigurator.MajorGridStyle.SetShowAtWall(ChartWallType.Back, false);
             emgAxis.ScaleConfigurator.Title.Text = "EMG (mV)";
             emgXAxis.ScaleConfigurator.OuterMajorTickStyle.Visible = false;
 
             NAxis angleAxis = angleChart.Axis(StandardAxis.PrimaryY);
-            NAxis angleXAxis = forceChart.Axis(StandardAxis.PrimaryX);
+            NAxis angleXAxis = angleChart.Axis(StandardAxis.PrimaryX);
             angleAxis.View = new NRangeAxisView(new NRange1DD(0, 200));
             angleAxis.ScaleConfigurator.MajorGridStyle.SetShowAtWall(ChartWallType.Back, false);
             angleAxis.ScaleConfigurator.Title.Text = "Angle (°)";
