@@ -10,6 +10,7 @@ using Nevron.Chart;
 
 using MaterialSkin.Controls;
 using MaterialSkin;
+using System.Linq;
 
 namespace SpasticityClientV2
 {
@@ -100,7 +101,6 @@ namespace SpasticityClientV2
             forceAxis.ScaleConfigurator.MajorGridStyle.SetShowAtWall(ChartWallType.Back, false);
             forceAxis.ScaleConfigurator.Title.Text = "Force (N)";
             forceXAxis.ScaleConfigurator.OuterMajorTickStyle.Visible = false;
-            forceXAxis.ScaleConfigurator.
 
             NAxis emgAxis = emgChart.Axis(StandardAxis.PrimaryY);
             NAxis emgXAxis = emgChart.Axis(StandardAxis.PrimaryX);
@@ -310,6 +310,8 @@ namespace SpasticityClientV2
                 importDataOptions.PreserveTypes = false;
                 worksheet.ImportData(SessionDatas, importDataOptions);
 
+
+
                 #region Calculate summary statistics and first quartile, third quartile, and interquartile range
                 //Set Labels
                 //Creating a new style with cell back color, fill pattern and font attribute
@@ -326,6 +328,7 @@ namespace SpasticityClientV2
 
                 worksheet.Range["H1:K1"].CellStyle = headingStyle;
                 worksheet.Range["M1"].CellStyle = headingStyle;
+
                 worksheet.Range["G2:G11"].CellStyle = statisticStyle;
                 worksheet.Range["H2:K11"].CellStyle = tableBodyStyle;
                 worksheet.Range["M2:M11"].CellStyle = tableBodyStyle;
@@ -410,69 +413,99 @@ namespace SpasticityClientV2
                 worksheet.Range["K11"].Formula = "=K8+(K9*1.5)";
                 #endregion
 
+
+
+                    application.EnableIncrementalFormula = true;
+                    var myRange = worksheet.Range["C3:C2000"];
+
+                    myRange.Formula = "=(ABS(B4-B2))/((A4-A2)/1000)";
+                    myRange.NumberFormat = "0.00";
+                    application.EnableIncrementalFormula = false;
+                    for (int i = 0; i < myRange.Count; i++)
+                    {
+                        if (!myRange.Cells[i].CalculatedValue.Contains(".") && !myRange.Cells[i].CalculatedValue.Contains("0"))
+                        {
+                                myRange.Cells[i].Clear();
+                        }
+                    }
                 #region Highlight outliers
                 //Angle
                 //Applying conditional formatting to Angle column
                 IConditionalFormats _condition1 = worksheet.Range["B:B"].ConditionalFormats;
                 IConditionalFormat condition1 = _condition1.AddCondition();
-                condition1.FormatType = ExcelCFType.CellValue;
-                condition1.Operator = ExcelComparisonOperator.NotBetween;
-                //condition1.FirstFormula = worksheet.Cells["H10"].FormulaNumberValue.ToString();
-                //condition1.FirstFormula = worksheet.Range["H10"].FormulaNumberValue.ToString();
-                condition1.FirstFormula = worksheet.Range["H10"].CalculatedValue.ToString();
-                condition1.SecondFormula = worksheet.Range["H11"].CalculatedValue.ToString();
-                condition1.BackColorRGB = Syncfusion.Drawing.Color.FromArgb(200, 100, 100);
-                worksheet.Range["B1"].ConditionalFormats.Remove();
+                    condition1.FormatType = ExcelCFType.ColorScale;
+                    condition1.ColorScale.SetConditionCount(2);
+
+                    condition1.ColorScale.Criteria[0].FormatColorRGB = Syncfusion.Drawing.Color.White;
+                    condition1.ColorScale.Criteria[0].Type = ConditionValueType.Percentile;
+                    condition1.ColorScale.Criteria[0].Value = "0";
+
+                    condition1.ColorScale.Criteria[1].FormatColorRGB = Syncfusion.Drawing.Color.MediumPurple;
+                    condition1.ColorScale.Criteria[1].Type = ConditionValueType.Percentile;
+                    condition1.ColorScale.Criteria[1].Value = "100";
+
+                    worksheet.Range["B1"].ConditionalFormats.Remove();
 
                 //Angular Velocity
                 //Applying conditional formatting to Angular Velocity column
                 IConditionalFormats _condition2 = worksheet.Range["C:C"].ConditionalFormats;
                 IConditionalFormat condition2 = _condition2.AddCondition();
-                condition2.FormatType = ExcelCFType.CellValue;
-                condition2.Operator = ExcelComparisonOperator.NotBetween;
-                condition2.FirstFormula = worksheet.Range["I10"].CalculatedValue.ToString();
-                condition2.SecondFormula = worksheet.Range["I11"].CalculatedValue.ToString();
-                condition2.BackColorRGB = Syncfusion.Drawing.Color.FromArgb(200, 100, 100);
-                worksheet.Range["C1"].ConditionalFormats.Remove();
+                    condition2.FormatType = ExcelCFType.ColorScale;
+                    condition2.ColorScale.SetConditionCount(2);
+
+                    condition2.ColorScale.Criteria[0].FormatColorRGB = Syncfusion.Drawing.Color.White;
+                    condition2.ColorScale.Criteria[0].Type = ConditionValueType.Percentile;
+                    condition2.ColorScale.Criteria[0].Value = "0";
+
+                    condition2.ColorScale.Criteria[1].FormatColorRGB = Syncfusion.Drawing.Color.MediumPurple;
+                    condition2.ColorScale.Criteria[1].Type = ConditionValueType.Percentile;
+                    condition2.ColorScale.Criteria[1].Value = "100";
+
+                    worksheet.Range["C1"].ConditionalFormats.Remove();
 
                 //EMG
                 //Applying conditional formatting to EMG column
                 IConditionalFormats _condition3 = worksheet.Range["D:D"].ConditionalFormats;
                 IConditionalFormat condition3 = _condition3.AddCondition();
-                condition3.FormatType = ExcelCFType.CellValue;
-                condition3.Operator = ExcelComparisonOperator.NotBetween;
-                condition3.FirstFormula = worksheet.Range["J10"].CalculatedValue.ToString();
-                condition3.SecondFormula = worksheet.Range["J11"].CalculatedValue.ToString();
-                condition3.BackColorRGB = Syncfusion.Drawing.Color.FromArgb(200, 100, 100);
-                worksheet.Range["D1"].ConditionalFormats.Remove();
+                    condition3.FormatType = ExcelCFType.ColorScale;
+                    condition3.ColorScale.SetConditionCount(2);
+
+                    condition3.ColorScale.Criteria[0].FormatColorRGB = Syncfusion.Drawing.Color.White;
+                    condition3.ColorScale.Criteria[0].Type = ConditionValueType.Percentile;
+                    condition3.ColorScale.Criteria[0].Value = "0";
+
+                    condition3.ColorScale.Criteria[1].FormatColorRGB = Syncfusion.Drawing.Color.MediumPurple;
+                    condition3.ColorScale.Criteria[1].Type = ConditionValueType.Percentile;
+                    condition3.ColorScale.Criteria[1].Value = "100";
+                    worksheet.Range["D1"].ConditionalFormats.Remove();
 
                 //Force
                 //Applying conditional formatting to Force column
                 IConditionalFormats _condition4 = worksheet.Range["E:E"].ConditionalFormats;
                 IConditionalFormat condition4 = _condition4.AddCondition();
-                condition4.FormatType = ExcelCFType.CellValue;
-                condition4.Operator = ExcelComparisonOperator.NotBetween;
-                condition4.FirstFormula = worksheet.Range["K10"].CalculatedValue.ToString();
-                condition4.SecondFormula = worksheet.Range["K11"].CalculatedValue.ToString();
-                condition4.BackColorRGB = Syncfusion.Drawing.Color.FromArgb(200, 100, 100);
-                worksheet.Range["E1"].ConditionalFormats.Remove();
+                    //condition4.FormatType = ExcelCFType.CellValue;
+                    condition4.FormatType = ExcelCFType.ColorScale;
+                    condition4.ColorScale.SetConditionCount(2);
 
-                #endregion
+                    condition4.ColorScale.Criteria[0].FormatColorRGB = Syncfusion.Drawing.Color.White;
+                    condition4.ColorScale.Criteria[0].Type = ConditionValueType.Percentile;
+                    condition4.ColorScale.Criteria[0].Value = "0";
 
-                #region Format data as table
-                //Create table with the data in given range
-                IListObject table = worksheet.ListObjects.Create("Table1", worksheet["A:E"]);
-                table.BuiltInTableStyle = TableBuiltInStyles.TableStyleMedium8;
-                #endregion
+                    condition4.ColorScale.Criteria[1].FormatColorRGB = Syncfusion.Drawing.Color.MediumPurple;
+                    condition4.ColorScale.Criteria[1].Type = ConditionValueType.Percentile;
+                    condition4.ColorScale.Criteria[1].Value = "100";
+                    worksheet.Range["E1"].ConditionalFormats.Remove();
 
-                #region Autofit columns
-                worksheet.Range["A:E"].AutofitColumns();
+                    worksheet.Range["A1:E1"].CellStyle = headingStyle;
+                    #endregion
+
+                    #region Autofit columns
+                    worksheet.Range["A:E"].AutofitColumns();
                 worksheet.Range["H:K"].AutofitColumns();
                 worksheet.Range["M:M"].AutofitColumns();
                 #endregion
 
                 #region Charts
-
                 string rowcount = worksheet.UsedRange.LastRow.ToString();
                 string timeDataRange = "A2:A" + rowcount;
                 string angleDataRange = "B2:B" + rowcount;
@@ -653,6 +686,7 @@ namespace SpasticityClientV2
 
         private void materialButton3_Click(object sender, EventArgs e)
         {
+            Thread.Sleep(2000);
             SaveData();
             materialButton3.Enabled = false;
         }
