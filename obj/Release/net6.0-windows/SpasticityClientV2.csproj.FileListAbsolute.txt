@@ -37,3 +37,4 @@ C:\Users\spacebek\Documents\GitHub\SpasticityClientV2\obj\Release\net6.0-windows
 C:\Users\spacebek\Documents\GitHub\SpasticityClientV2\obj\Release\net6.0-windows\SpasticityClientV2.pdb
 C:\Users\spacebek\Documents\GitHub\SpasticityClientV2\obj\Release\net6.0-windows\SpasticityClientV2.genruntimeconfig.cache
 C:\Users\spacebek\Documents\GitHub\SpasticityClientV2\obj\Release\net6.0-windows\ref\SpasticityClientV2.dll
+C:\Users\spacebek\Documents\GitHub\SpasticityClientV2\bin\Release\net6.0-windows\MaterialSkin.dll
