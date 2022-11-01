@@ -101,10 +101,13 @@ namespace SpasticityClientV2
 
             NAxis forceAxis = forceChart.Axis(StandardAxis.PrimaryY);
             NAxis forceXAxis = forceChart.Axis(StandardAxis.PrimaryX);
-            forceAxis.View = new NRangeAxisView(new NRange1DD(0, 250));
+            forceAxis.View = new NRangeAxisView(new NRange1DD(0, 200));
             forceAxis.ScaleConfigurator.MajorGridStyle.SetShowAtWall(ChartWallType.Back, false);
             forceAxis.ScaleConfigurator.Title.Text = "Force (N)";
             forceXAxis.ScaleConfigurator.OuterMajorTickStyle.Visible = false;
+            NStandardScaleConfigurator forceScale = (NStandardScaleConfigurator)forceXAxis.ScaleConfigurator;
+            forceScale.AutoLabels = false;
+            forceScale.MaxTickCount = 0;
 
             NAxis emgAxis = emgChart.Axis(StandardAxis.PrimaryY);
             NAxis emgXAxis = emgChart.Axis(StandardAxis.PrimaryX);
@@ -112,6 +115,8 @@ namespace SpasticityClientV2
             emgAxis.ScaleConfigurator.MajorGridStyle.SetShowAtWall(ChartWallType.Back, false);
             emgAxis.ScaleConfigurator.Title.Text = "EMG (mV)";
             emgXAxis.ScaleConfigurator.OuterMajorTickStyle.Visible = false;
+            NStandardScaleConfigurator emgScale = (NStandardScaleConfigurator)emgXAxis.ScaleConfigurator;
+            emgScale.AutoLabels = false;
 
             NAxis angleAxis = angleChart.Axis(StandardAxis.PrimaryY);
             NAxis angleXAxis = angleChart.Axis(StandardAxis.PrimaryX);
@@ -119,6 +124,8 @@ namespace SpasticityClientV2
             angleAxis.ScaleConfigurator.MajorGridStyle.SetShowAtWall(ChartWallType.Back, false);
             angleAxis.ScaleConfigurator.Title.Text = "Angle (°)";
             angleXAxis.ScaleConfigurator.OuterMajorTickStyle.Visible = false;
+            NStandardScaleConfigurator angleScale = (NStandardScaleConfigurator)angleXAxis.ScaleConfigurator;
+            angleScale.AutoLabels = false;
 
             nChartControl1.Charts.Clear();
             nChartControl2.Charts.Clear();
@@ -143,6 +150,7 @@ namespace SpasticityClientV2
 
             forceSeries.DataLabelStyle.Visible = false;
             forceSeries.Legend.Mode = SeriesLegendMode.None;
+
             emgSeries.DataLabelStyle.Visible = false;
             emgSeries.Legend.Mode = SeriesLegendMode.None;
             angleSeries.DataLabelStyle.Visible = false;
@@ -240,7 +248,9 @@ namespace SpasticityClientV2
                                     float force = (int)((FORMSB & 0xFF) << 8 | (FORLSB & 0xFF));
                                     float angle = (int)((POTANGLEMSB & 0xFF) << 8 | (POTANGLELSB & 0xFF));
 
+                                    force = (force - 203f) / 3.18f;
                                     string forceString = force.ToString();
+                                    
 
                                     #region Calibrate out starting force bias 
                                     if (counter < 20)
@@ -248,7 +258,9 @@ namespace SpasticityClientV2
                                         forceCalArray.Add(force);
                                     }
                                     initialForce = forceCalArray.Min();
+
                                     forceDiff = force - initialForce;
+                                    
                                     #endregion
 
                                     if (forceSeries.Values.Count > bufferLimit)
@@ -268,7 +280,7 @@ namespace SpasticityClientV2
                                     #region Send data to Excel collection
                                     SessionDatas.Add(new SessionData
                                     {
-                                        TimeStamp = (long)elapsedTime,
+                                        TimeStamp = (elapsedTime/1000),
                                         Angle_deg = angle,
                                         AngVel_degpersec = 0,
                                         EMG_mV = emg,
