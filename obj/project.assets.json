@@ -650,38 +650,30 @@
   },
   "packageFolders": {
     "C:\\Users\\spacebek\\.nuget\\packages\\": {},
-    "C:\\Program Files (x86)\\Microsoft Visual Studio\\Shared\\NuGetPackages": {},
-    "C:\\Program Files (x86)\\Nevron Software\\Nevron .NET Vision 2022.1\\NugetPackage\\nevrondotnetvision": {},
-    "C:\\Program Files (x86)\\Nevron Software\\Nevron Open Vision 2022.3\\NugetPackage": {}
+    "C:\\Program Files (x86)\\Microsoft Visual Studio\\Shared\\NuGetPackages": {}
   },
   "project": {
     "version": "1.0.0",
     "restore": {
-      "projectUniqueName": "C:\\Users\\spacebek\\Documents\\GitHub\\SpasticityClientV2\\SpasticityClientV2.csproj",
+      "projectUniqueName": "C:\\Users\\spacebek\\Documents\\GitHub\\spasticity-dashboard-v3\\SpasticityClientV2.csproj",
       "projectName": "SpasticityClientV2",
-      "projectPath": "C:\\Users\\spacebek\\Documents\\GitHub\\SpasticityClientV2\\SpasticityClientV2.csproj",
+      "projectPath": "C:\\Users\\spacebek\\Documents\\GitHub\\spasticity-dashboard-v3\\SpasticityClientV2.csproj",
       "packagesPath": "C:\\Users\\spacebek\\.nuget\\packages\\",
-      "outputPath": "C:\\Users\\spacebek\\Documents\\GitHub\\SpasticityClientV2\\obj\\",
+      "outputPath": "C:\\Users\\spacebek\\Documents\\GitHub\\spasticity-dashboard-v3\\obj\\",
       "projectStyle": "PackageReference",
       "fallbackFolders": [
-        "C:\\Program Files (x86)\\Microsoft Visual Studio\\Shared\\NuGetPackages",
-        "C:\\Program Files (x86)\\Nevron Software\\Nevron .NET Vision 2022.1\\NugetPackage\\nevrondotnetvision",
-        "C:\\Program Files (x86)\\Nevron Software\\Nevron Open Vision 2022.3\\NugetPackage"
+        "C:\\Program Files (x86)\\Microsoft Visual Studio\\Shared\\NuGetPackages"
       ],
       "configFilePaths": [
         "C:\\Users\\spacebek\\AppData\\Roaming\\NuGet\\NuGet.Config",
         "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.FallbackLocation.config",
-        "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.Offline.config",
-        "C:\\Program Files (x86)\\NuGet\\Config\\NevronDotNetVision.22.9.26.12.config",
-        "C:\\Program Files (x86)\\NuGet\\Config\\NevronOpenVision.22.10.12.12.config"
+        "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.Offline.config"
       ],
       "originalTargetFrameworks": [
         "net6.0-windows"
       ],
       "sources": {
         "C:\\Program Files (x86)\\Microsoft SDKs\\NuGetPackages\\": {},
-        "C:\\Program Files (x86)\\Nevron Software\\Nevron .NET Vision 2022.1\\NugetPackage\\nevrondotnetvision": {},
-        "C:\\Program Files (x86)\\Nevron Software\\Nevron Open Vision 2022.3\\NugetPackage\\nevronopenvision": {},
         "C:\\Program Files\\dotnet\\library-packs": {},
         "https://api.nuget.org/v3/index.json": {}
       },

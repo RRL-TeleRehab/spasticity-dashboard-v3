@@ -202,7 +202,7 @@ namespace SpasticityClientV2
                         {
                             //Total transmitted data is [] byte long. 1 more byte should be checksum. prefixchar is the extra header due to API Mode
                             int prefixCharLength = 8;
-                            int byteArrayLength = 25;
+                            int byteArrayLength = 29;
                             int checkSumLength = 1;
                             int totalExpectedCharLength = prefixCharLength + byteArrayLength + checkSumLength;
 
@@ -235,10 +235,20 @@ namespace SpasticityClientV2
                                     var POTANGLEMSB = Convert.ToByte(data[16], 16);
                                     var POTANGLELSB = Convert.ToByte(data[17], 16);
 
+                                    // add 4 more bytes (16 a-d conv)
+                                    var AMUZ1MSB = Convert.ToByte(data[18], 16);
+                                    var AMUZ1LSB = Convert.ToByte(data[19], 16);
+                                    var AMUZ2MSB = Convert.ToByte(data[20], 16);
+                                    var AMUZ2LSB = Convert.ToByte(data[21], 16);
+
                                     float elapsedTime = (long)((TIME2MSB & 0xFF) << 24 | (TIME2LSB & 0xFF) << 16 | (TIME1MSB & 0xFF) << 8 | (TIME1LSB & 0xFF));
                                     float emg = (int)(EMGMSB & 0xFF) << 8 | (EMGLSB & 0xFF);
                                     float force = (int)((FORMSB & 0xFF) << 8 | (FORLSB & 0xFF));
                                     float angle = (int)((POTANGLEMSB & 0xFF) << 8 | (POTANGLELSB & 0xFF));
+
+                                    float amuz1 = (int)(AMUZ1MSB & 0xFF) << 8 | (AMUZ1LSB & 0xFF);
+                                    float amuz2 = (int)(AMUZ2MSB & 0xFF) << 8 | (AMUZ2LSB & 0xFF);
+
 
                                     string forceString = force.ToString();
 
@@ -272,7 +282,9 @@ namespace SpasticityClientV2
                                         Angle_deg = angle,
                                         AngVel_degpersec = 0,
                                         EMG_mV = emg,
-                                        Force_N = forceDiff
+                                        Force_N = forceDiff,
+                                        AMUZ_1 = amuz1,
+                                        AMUZ_2 = amuz2
                                     }); ;
                                     #endregion
 
@@ -314,8 +326,6 @@ namespace SpasticityClientV2
                 importDataOptions.PreserveTypes = false;
                 worksheet.ImportData(SessionDatas, importDataOptions);
 
-
-
                 #region Calculate summary statistics and first quartile, third quartile, and interquartile range
                 //Set Labels
                 //Creating a new style with cell back color, fill pattern and font attribute
@@ -330,94 +340,92 @@ namespace SpasticityClientV2
                 IStyle tableBodyStyle = workbook.Styles.Add("NewStyle3");
                 tableBodyStyle.Color = Syncfusion.Drawing.Color.LightGray;
 
-                worksheet.Range["H1:K1"].CellStyle = headingStyle;
-                worksheet.Range["M1"].CellStyle = headingStyle;
+                worksheet.Range["J1:M1"].CellStyle = headingStyle;
+                worksheet.Range["O1"].CellStyle = headingStyle;
 
-                worksheet.Range["G2:G11"].CellStyle = statisticStyle;
-                worksheet.Range["H2:K11"].CellStyle = tableBodyStyle;
-                worksheet.Range["M2:M11"].CellStyle = tableBodyStyle;
-                worksheet.Range["G1:K11"].CellStyle.Borders.Color = ExcelKnownColors.White;
+                worksheet.Range["I2:I11"].CellStyle = statisticStyle;
+                worksheet.Range["J2:M11"].CellStyle = tableBodyStyle;
+                worksheet.Range["O2:O11"].CellStyle = tableBodyStyle;
+                worksheet.Range["I1:M11"].CellStyle.Borders.Color = ExcelKnownColors.White;
 
-                worksheet.Range["M1"].Text = "Description";
-                worksheet.Range["G2"].Text = "Min";
-                worksheet.Range["M2"].Text = "Least value in the dataset";
-                worksheet.Range["G3"].Text = "Max";
-                worksheet.Range["M3"].Text = "Greatest value in the dataset";
-                worksheet.Range["G4"].Text = "Range";
-                worksheet.Range["M4"].Text = "Difference between least and greatest values";
-                worksheet.Range["G5"].Text = "Mean";
-                worksheet.Range["M5"].Text = "Average of data";
-                worksheet.Range["G6"].Text = "StDev";
-                worksheet.Range["M6"].Text = "Standard deviation of data";
-                worksheet.Range["G7"].Text = "Q1";
-                worksheet.Range["M7"].Text = "First quartile";
-                worksheet.Range["G8"].Text = "Q3";
-                worksheet.Range["M8"].Text = "Third quartile";
-                worksheet.Range["G9"].Text = "IQR";
-                worksheet.Range["M9"].Text = "Interquartile range - difference between first and third quartiles";
-                worksheet.Range["G10"].Text = "L Bound";
-                worksheet.Range["M10"].Text = "Lower bound based on 1.5x IQR";
-                worksheet.Range["G11"].Text = "U Bound";
-                worksheet.Range["M11"].Text = "Upper bound based on 1.5x IQR";
-                worksheet.Range["H1"].Text = "Angle";
-                worksheet.Range["I1"].Text = "AngVel";
-                worksheet.Range["J1"].Text = "EMG";
-                worksheet.Range["K1"].Text = "Force";
+                worksheet.Range["O1"].Text = "Description";
+                worksheet.Range["I2"].Text = "Min";
+                worksheet.Range["O2"].Text = "Least value in the dataset";
+                worksheet.Range["I3"].Text = "Max";
+                worksheet.Range["O3"].Text = "Greatest value in the dataset";
+                worksheet.Range["I4"].Text = "Range";
+                worksheet.Range["O4"].Text = "Difference between least and greatest values";
+                worksheet.Range["I5"].Text = "Mean";
+                worksheet.Range["O5"].Text = "Average of data";
+                worksheet.Range["I6"].Text = "StDev";
+                worksheet.Range["O6"].Text = "Standard deviation of data";
+                worksheet.Range["I7"].Text = "Q1";
+                worksheet.Range["O7"].Text = "First quartile";
+                worksheet.Range["I8"].Text = "Q3";
+                worksheet.Range["O8"].Text = "Third quartile";
+                worksheet.Range["I9"].Text = "IQR";
+                worksheet.Range["O9"].Text = "Interquartile range - difference between first and third quartiles";
+                worksheet.Range["I10"].Text = "L Bound";
+                worksheet.Range["O10"].Text = "Lower bound based on 1.5x IQR";
+                worksheet.Range["I11"].Text = "U Bound";
+                worksheet.Range["O11"].Text = "Upper bound based on 1.5x IQR";
+                worksheet.Range["J1"].Text = "Angle";
+                worksheet.Range["K1"].Text = "AngVel";
+                worksheet.Range["L1"].Text = "EMG";
+                worksheet.Range["M1"].Text = "Force";
 
                 //Angle
-                worksheet.Range["H2"].Formula = "=MIN(B:B)";
-                worksheet.Range["H3"].Formula = "=MAX(B:B)";
-                worksheet.Range["H4"].Formula = "=ABS(H3-H2)";
-                worksheet.Range["H5"].Formula = "=AVERAGE(B:B)";
-                worksheet.Range["H6"].Formula = "=STDEV.P(B:B)";
-
-                worksheet.Range["H7"].Formula = "=QUARTILE(B:B,1)";
-                worksheet.Range["H8"].Formula = "=QUARTILE(B:B,3)";
-                worksheet.Range["H9"].Formula = "=ABS(H8-H7)";
-                worksheet.Range["H10"].Formula = "=H7-(H9*1.5)";
-                worksheet.Range["H11"].Formula = "=H8+(H9*1.5)";
-
-                //Angular Velocity
-                worksheet.Range["I2"].Formula = "=MIN(C:C)";
-                worksheet.Range["I3"].Formula = "=MAX(C:C)";
-                worksheet.Range["I4"].Formula = "=ABS(I3-I2)";
-                worksheet.Range["I5"].Formula = "=AVERAGE(C:C)";
-                worksheet.Range["I6"].Formula = "=STDEV.P(C:C)";
-
-                worksheet.Range["I7"].Formula = "=QUARTILE(C:C,1)";
-                worksheet.Range["I8"].Formula = "=QUARTILE(C:C,3)";
-                worksheet.Range["I9"].Formula = "=ABS(I8-I7)";
-                worksheet.Range["I10"].Formula = "=I7-(I9*1.5)";
-                worksheet.Range["I11"].Formula = "=I8+(I9*1.5)";
-
-                //EMG
-                worksheet.Range["J2"].Formula = "=MIN(D:D)";
-                worksheet.Range["J3"].Formula = "=MAX(D:D)";
+                worksheet.Range["J2"].Formula = "=MIN(B:B)";
+                worksheet.Range["J3"].Formula = "=MAX(B:B)";
                 worksheet.Range["J4"].Formula = "=ABS(J3-J2)";
-                worksheet.Range["J5"].Formula = "=AVERAGE(D:D)";
-                worksheet.Range["J6"].Formula = "=STDEV.P(D:D)";
+                worksheet.Range["J5"].Formula = "=AVERAGE(B:B)";
+                worksheet.Range["J6"].Formula = "=STDEV.P(B:B)";
 
-                worksheet.Range["J7"].Formula = "=QUARTILE(D:D,1)";
-                worksheet.Range["J8"].Formula = "=QUARTILE(D:D,3)";
+                worksheet.Range["J7"].Formula = "=QUARTILE(B:B,1)";
+                worksheet.Range["J8"].Formula = "=QUARTILE(B:B,3)";
                 worksheet.Range["J9"].Formula = "=ABS(J8-J7)";
                 worksheet.Range["J10"].Formula = "=J7-(J9*1.5)";
                 worksheet.Range["J11"].Formula = "=J8+(J9*1.5)";
 
-                //Force
-                worksheet.Range["K2"].Formula = "=MIN(E:E)";
-                worksheet.Range["K3"].Formula = "=MAX(E:E)";
+                //Angular Velocity
+                worksheet.Range["K2"].Formula = "=MIN(C:C)";
+                worksheet.Range["K3"].Formula = "=MAX(C:C)";
                 worksheet.Range["K4"].Formula = "=ABS(K3-K2)";
-                worksheet.Range["K5"].Formula = "=AVERAGE(E:E)";
-                worksheet.Range["K6"].Formula = "=STDEV.P(E:E)";
+                worksheet.Range["K5"].Formula = "=AVERAGE(C:C)";
+                worksheet.Range["K6"].Formula = "=STDEV.P(C:C)";
 
-                worksheet.Range["K7"].Formula = "=QUARTILE(E:E,1)";
-                worksheet.Range["K8"].Formula = "=QUARTILE(E:E,3)";
+                worksheet.Range["K7"].Formula = "=QUARTILE(C:C,1)";
+                worksheet.Range["K8"].Formula = "=QUARTILE(C:C,3)";
                 worksheet.Range["K9"].Formula = "=ABS(K8-K7)";
                 worksheet.Range["K10"].Formula = "=K7-(K9*1.5)";
                 worksheet.Range["K11"].Formula = "=K8+(K9*1.5)";
+
+                //EMG
+                worksheet.Range["L2"].Formula = "=MIN(D:D)";
+                worksheet.Range["L3"].Formula = "=MAX(D:D)";
+                worksheet.Range["L4"].Formula = "=ABS(L3-L2)";
+                worksheet.Range["L5"].Formula = "=AVERAGE(D:D)";
+                worksheet.Range["L6"].Formula = "=STDEV.P(D:D)";
+
+                worksheet.Range["L7"].Formula = "=QUARTILE(D:D,1)";
+                worksheet.Range["L8"].Formula = "=QUARTILE(D:D,3)";
+                worksheet.Range["L9"].Formula = "=ABS(L8-L7)";
+                worksheet.Range["L10"].Formula = "=L7-(L9*1.5)";
+                worksheet.Range["L11"].Formula = "=L8+(L9*1.5)";
+
+                //Force
+                worksheet.Range["M2"].Formula = "=MIN(E:E)";
+                worksheet.Range["M3"].Formula = "=MAX(E:E)";
+                worksheet.Range["M4"].Formula = "=ABS(M3-M2)";
+                worksheet.Range["M5"].Formula = "=AVERAGE(E:E)";
+                worksheet.Range["M6"].Formula = "=STDEV.P(E:E)";
+
+                worksheet.Range["M7"].Formula = "=QUARTILE(E:E,1)";
+                worksheet.Range["M8"].Formula = "=QUARTILE(E:E,3)";
+                worksheet.Range["M9"].Formula = "=ABS(M8-M7)";
+                worksheet.Range["M10"].Formula = "=M7-(M9*1.5)";
+                worksheet.Range["M11"].Formula = "=M8+(M9*1.5)";
                 #endregion
-
-
 
                     application.EnableIncrementalFormula = true;
                     var myRange = worksheet.Range["C3:C2000"];
@@ -432,6 +440,7 @@ namespace SpasticityClientV2
                                 myRange.Cells[i].Clear();
                         }
                     }
+
                 #region Highlight outliers
                 //Angle
                 //Applying conditional formatting to Angle column
@@ -503,10 +512,10 @@ namespace SpasticityClientV2
                     worksheet.Range["A1:E1"].CellStyle = headingStyle;
                     #endregion
 
-                    #region Autofit columns
+                #region Autofit columns
                     worksheet.Range["A:E"].AutofitColumns();
-                worksheet.Range["H:K"].AutofitColumns();
-                worksheet.Range["M:M"].AutofitColumns();
+                    worksheet.Range["H:K"].AutofitColumns();
+                    worksheet.Range["M:M"].AutofitColumns();
                 #endregion
 
                 #region Charts
@@ -628,8 +637,9 @@ namespace SpasticityClientV2
                 forceChart.Legend.Position = ExcelLegendPosition.Bottom;
                 //View legend horizontally
                 forceChart.Legend.IsVerticalLegend = false;
-                #endregion
+                    #endregion
 
+                #region Spreadsheet setup
                 //Set path and save
                 //string spreadsheetNamePath = "acquiredData\\";
                 //string spreadsheetNamePath = "C:\\Users\\stonx\\Desktop\\acquiredData";
@@ -645,6 +655,7 @@ namespace SpasticityClientV2
 
                 FileStream stream = new FileStream(spreadsheetName, FileMode.Create, FileAccess.ReadWrite);
                 workbook.SaveAs(stream);
+                #endregion
 
                 #region View the Workbook
 

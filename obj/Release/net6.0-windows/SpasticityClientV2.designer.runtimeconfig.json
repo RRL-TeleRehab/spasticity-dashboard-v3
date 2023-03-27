@@ -14,9 +14,7 @@
     "additionalProbingPaths": [
       "C:\\Users\\spacebek\\.dotnet\\store\\|arch|\\|tfm|",
       "C:\\Users\\spacebek\\.nuget\\packages",
-      "C:\\Program Files (x86)\\Microsoft Visual Studio\\Shared\\NuGetPackages",
-      "C:\\Program Files (x86)\\Nevron Software\\Nevron .NET Vision 2022.1\\NugetPackage\\nevrondotnetvision",
-      "C:\\Program Files (x86)\\Nevron Software\\Nevron Open Vision 2022.3\\NugetPackage"
+      "C:\\Program Files (x86)\\Microsoft Visual Studio\\Shared\\NuGetPackages"
     ],
     "configProperties": {
       "System.Reflection.Metadata.MetadataUpdater.IsSupported": false,

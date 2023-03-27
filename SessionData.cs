@@ -13,5 +13,7 @@ namespace SpasticityClientV2
         public float AngVel_degpersec { get; set; }
         public float EMG_mV { get; set; }
         public float Force_N { get; set; }
+        public float AMUZ_1 { get; set; }
+        public float AMUZ_2 { get; set; }
     }
 }
