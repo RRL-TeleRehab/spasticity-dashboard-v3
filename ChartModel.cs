@@ -36,9 +36,9 @@ namespace SpasticityClientV2
 
         public ChartModel()
         {
-            NLicense license = new NLicense("073c7566-4c00-2a00-5102-57006a01f915");
-            NLicenseManager.Instance.SetLicense(license);
-            NLicenseManager.Instance.LockLicense = true;
+            //NLicense license = new NLicense("073c7566-4c00-2a00-5102-57006a01f915");
+            //NLicenseManager.Instance.SetLicense(license);
+            //NLicenseManager.Instance.LockLicense = true;
             SyncfusionLicenseProvider.RegisterLicense("NzM1MjU0QDMyMzAyZTMzMmUzMGNzTncwMXBQcUs0d3dPM1lTT0oyc1ZaVkxpTzlsZUs5eTFNTWJYZnF4L1U9");
             SyncfusionLicenseProvider.RegisterLicense("NRAiBiAaIQQuGjN/V0Z+X09EaFtFVmJLYVB3WmpQdldgdVRMZVVbQX9PIiBoS35RdERjWXZfd3dRR2NeV0V1");
             InitializeComponent();

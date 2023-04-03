@@ -1,0 +1,8 @@
+{
+  "profiles": {
+    "SpasticityClientV2": {
+      "commandName": "Project",
+      "nativeDebugging": true
+    }
+  }
+}
