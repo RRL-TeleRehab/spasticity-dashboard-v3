@@ -40,7 +40,7 @@ namespace SpasticityClientV2
                 while (searchNext)
                 {
                     searchNext = false;
-                    var idx = leftHexData.IndexOf("05");
+                    var idx = leftHexData.IndexOf("05", searchIdx);
                     if (idx >= 0 && leftHexData.Count > idx && leftHexData[idx-1] == "55")
                     {
                         var parsedList = leftHexData.GetRange(0, idx+2);
