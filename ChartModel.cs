@@ -201,8 +201,8 @@ namespace SpasticityClientV2
                         foreach (var packet in packets)
                         {
                             //Total transmitted data is [] byte long. 1 more byte should be checksum. prefixchar is the extra header due to API Mode
-                            int prefixCharLength = 8;
-                            int byteArrayLength = 25;
+                            int prefixCharLength = 0;
+                            int byteArrayLength = 12;
                             int checkSumLength = 1;
                             int totalExpectedCharLength = prefixCharLength + byteArrayLength + checkSumLength;
 
@@ -213,27 +213,27 @@ namespace SpasticityClientV2
                             {
                                 //Make sure it's 25 charactors long. It's same as the arduino receiver code for checking the length. This was previously compared to totalExpectedCharLength but looks like packetDatas - packetData only contains the data part anyway therefore compare to byteArrayLength
                                 //Also modify data defn to be packetData itself
-                                if (packetData.Count == (prefixCharLength + byteArrayLength + checkSumLength))
+                                if (packetData.Count == (byteArrayLength))
                                 {
                                     var data = packetData;
 
                                     //convert timestamp
-                                    var TIME2MSB = Convert.ToByte(data[8], 16);
-                                    var TIME2LSB = Convert.ToByte(data[9], 16);
-                                    var TIME1MSB = Convert.ToByte(data[10], 16);
-                                    var TIME1LSB = Convert.ToByte(data[11], 16);
+                                    var TIME2MSB = Convert.ToByte(data[2], 16);
+                                    var TIME2LSB = Convert.ToByte(data[3], 16);
+                                    var TIME1MSB = Convert.ToByte(data[4], 16);
+                                    var TIME1LSB = Convert.ToByte(data[5], 16);
 
                                     //convert rectified EMG
-                                    var EMGMSB = Convert.ToByte(data[12], 16);
-                                    var EMGLSB = Convert.ToByte(data[13], 16);
+                                    var EMGMSB = Convert.ToByte(data[6], 16);
+                                    var EMGLSB = Convert.ToByte(data[7], 16);
 
                                     //convert force
-                                    var FORMSB = Convert.ToByte(data[14], 16);
-                                    var FORLSB = Convert.ToByte(data[15], 16);
+                                    var FORMSB = Convert.ToByte(data[8], 16);
+                                    var FORLSB = Convert.ToByte(data[9], 16);
 
                                     //convert potentiometer edge computer angle and angvel values. 
-                                    var POTANGLEMSB = Convert.ToByte(data[16], 16);
-                                    var POTANGLELSB = Convert.ToByte(data[17], 16);
+                                    var POTANGLEMSB = Convert.ToByte(data[10], 16);
+                                    var POTANGLELSB = Convert.ToByte(data[11], 16);
 
                                     float elapsedTime = (long)((TIME2MSB & 0xFF) << 24 | (TIME2LSB & 0xFF) << 16 | (TIME1MSB & 0xFF) << 8 | (TIME1LSB & 0xFF));
                                     float emg = (int)(EMGMSB & 0xFF) << 8 | (EMGLSB & 0xFF);

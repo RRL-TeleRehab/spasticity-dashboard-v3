@@ -40,13 +40,15 @@ namespace SpasticityClientV2
                 while (searchNext)
                 {
                     searchNext = false;
-                    var idx = leftHexData.IndexOf("05", searchIdx);
-                    if (idx >= 0 && leftHexData.Count > idx && leftHexData[idx-1] == "55")
+                    var idx = leftHexData.IndexOf("7F");
+                    if (idx >= 0 && leftHexData.Count > idx + 12 && leftHexData[idx+1]=="7F")
                     {
-                        var parsedList = leftHexData.GetRange(0, idx+2);
+                        var parsedList = leftHexData.GetRange(idx, 12);
+
                         returnHex.Add(parsedList);
-                        leftHexData.RemoveRange(0, idx+2);
+                        leftHexData.RemoveRange(idx,12);
                     }
+
                     else
                     {
                         if (idx < 0)
@@ -78,7 +80,7 @@ namespace SpasticityClientV2
                 if (hexFull[0] == "7E")
                 {
                     var length = int.Parse(hexFull[1] + hexFull[2], System.Globalization.NumberStyles.HexNumber);
-                    if (length != 30)
+                    if (length != 17)
                     {
                         isWrongStart = true;
                     }
