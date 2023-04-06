@@ -101,7 +101,7 @@ namespace SpasticityClientV2
 
             NAxis forceAxis = forceChart.Axis(StandardAxis.PrimaryY);
             NAxis forceXAxis = forceChart.Axis(StandardAxis.PrimaryX);
-            forceAxis.View = new NRangeAxisView(new NRange1DD(0, 250));
+            forceAxis.View = new NRangeAxisView(new NRange1DD(0, 5000));
             forceAxis.ScaleConfigurator.MajorGridStyle.SetShowAtWall(ChartWallType.Back, false);
             forceAxis.ScaleConfigurator.Title.Text = "Force (N)";
             forceXAxis.ScaleConfigurator.OuterMajorTickStyle.Visible = false;
