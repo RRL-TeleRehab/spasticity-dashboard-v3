@@ -99,9 +99,10 @@ namespace SpasticityClientV2
             emgChart = (NCartesianChart)nChartControl2.Charts[0];
             angleChart = (NCartesianChart)nChartControl3.Charts[0];
 
+            //hello
             NAxis forceAxis = forceChart.Axis(StandardAxis.PrimaryY);
             NAxis forceXAxis = forceChart.Axis(StandardAxis.PrimaryX);
-            forceAxis.View = new NRangeAxisView(new NRange1DD(0, 5000));
+            forceAxis.View = new NRangeAxisView(new NRange1DD(-10, 100));
             forceAxis.ScaleConfigurator.MajorGridStyle.SetShowAtWall(ChartWallType.Back, false);
             forceAxis.ScaleConfigurator.Title.Text = "Force (N)";
             forceXAxis.ScaleConfigurator.OuterMajorTickStyle.Visible = false;
