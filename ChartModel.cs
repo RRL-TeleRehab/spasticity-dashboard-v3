@@ -504,7 +504,7 @@ namespace SpasticityClientV2
                     worksheet.Range["A1:E1"].CellStyle = headingStyle;
                     #endregion
 
-                    #region Autofit columns
+                #region Autofit columns
                     worksheet.Range["A:E"].AutofitColumns();
                 worksheet.Range["H:K"].AutofitColumns();
                 worksheet.Range["M:M"].AutofitColumns();
