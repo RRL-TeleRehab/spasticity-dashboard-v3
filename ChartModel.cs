@@ -30,27 +30,32 @@ namespace SpasticityClientV2
         // define port and port thread
         public SerialPort port;
         public Thread portThread;
-
-        private bool showRowHeader = false;
-        private float _fontsize { get; set; }
+        // another loop bool and reference to form resizer
         public bool IsRunning { get; set; }
         clsResize _form_resize;
+        // define the structure that contains all the Excel data
         public List<SessionData> SessionDatas { get; set; }
 
         public ChartModel()
-        {
+        {   
+            // license registration and initialize the component
             //NLicense license = new NLicense("073c7566-4c00-2a00-5102-57006a01f915");
             //NLicenseManager.Instance.SetLicense(license);
             //NLicenseManager.Instance.LockLicense = true;
             SyncfusionLicenseProvider.RegisterLicense("NzM1MjU0QDMyMzAyZTMzMmUzMGNzTncwMXBQcUs0d3dPM1lTT0oyc1ZaVkxpTzlsZUs5eTFNTWJYZnF4L1U9");
             SyncfusionLicenseProvider.RegisterLicense("NRAiBiAaIQQuGjN/V0Z+X09EaFtFVmJLYVB3WmpQdldgdVRMZVVbQX9PIiBoS35RdERjWXZfd3dRR2NeV0V1");
             InitializeComponent();
-            _form_resize = new clsResize(this); //I put this after the initialize event to be sure that all controls are initialized properly
-            this.Load += new EventHandler(_Load); //This will be called after the initialization // form_load
+            // put this after the initialize event to be sure that all controls are initialized properly
+            _form_resize = new clsResize(this);
+            // this will be called after the initialization // form_load
+            this.Load += new EventHandler(_Load); 
             this.Resize += new EventHandler(_Resize); //form_resize
             this.Text = "Spasticity Dashboard V2.0";
+            // define port array to put port names in when found, then find the ports
             string[] ports = SerialPort.GetPortNames();
+            // add the ports that were found to our dropdown
             materialComboBox1.Items.AddRange(ports);
+            // material skin controls the UI theme and we configure its parameters below
             var materialSkinManager = MaterialSkinManager.Instance;
             materialSkinManager.AddFormToManage(this);
             materialSkinManager.Theme = MaterialSkinManager.Themes.LIGHT;
