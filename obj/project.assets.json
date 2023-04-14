@@ -29,14 +29,10 @@
           "Microsoft.NETCore.Platforms": "5.0.0"
         },
         "compile": {
-          "ref/netstandard2.0/_._": {
-            "related": ".xml"
-          }
+          "ref/netstandard2.0/_._": {}
         },
         "runtime": {
-          "lib/netstandard2.0/Microsoft.Win32.SystemEvents.dll": {
-            "related": ".xml"
-          }
+          "lib/netstandard2.0/Microsoft.Win32.SystemEvents.dll": {}
         },
         "runtimeTargets": {
           "runtimes/win/lib/netcoreapp3.0/Microsoft.Win32.SystemEvents.dll": {
@@ -51,62 +47,26 @@
           "System.Drawing.Common": "5.0.0"
         },
         "compile": {
-          "lib/net5.0-windows7.0/Nevron.Chart.WinForm.dll": {
-            "related": ".xml"
-          },
-          "lib/net5.0-windows7.0/Nevron.Chart.Wpf.dll": {
-            "related": ".xml"
-          },
-          "lib/net5.0-windows7.0/Nevron.Chart.dll": {
-            "related": ".WinForm.xml;.Wpf.xml;.xml"
-          },
-          "lib/net5.0-windows7.0/Nevron.Diagram.Shapes.dll": {
-            "related": ".xml"
-          },
-          "lib/net5.0-windows7.0/Nevron.Diagram.WinForm.dll": {
-            "related": ".xml"
-          },
-          "lib/net5.0-windows7.0/Nevron.Diagram.dll": {
-            "related": ".Shapes.xml;.WinForm.xml;.xml"
-          },
-          "lib/net5.0-windows7.0/Nevron.GraphicsGL.dll": {
-            "related": ".xml"
-          },
-          "lib/net5.0-windows7.0/Nevron.Presentation.dll": {
-            "related": ".xml"
-          },
-          "lib/net5.0-windows7.0/Nevron.System.dll": {
-            "related": ".xml"
-          }
+          "lib/net5.0-windows7.0/Nevron.Chart.WinForm.dll": {},
+          "lib/net5.0-windows7.0/Nevron.Chart.Wpf.dll": {},
+          "lib/net5.0-windows7.0/Nevron.Chart.dll": {},
+          "lib/net5.0-windows7.0/Nevron.Diagram.Shapes.dll": {},
+          "lib/net5.0-windows7.0/Nevron.Diagram.WinForm.dll": {},
+          "lib/net5.0-windows7.0/Nevron.Diagram.dll": {},
+          "lib/net5.0-windows7.0/Nevron.GraphicsGL.dll": {},
+          "lib/net5.0-windows7.0/Nevron.Presentation.dll": {},
+          "lib/net5.0-windows7.0/Nevron.System.dll": {}
         },
         "runtime": {
-          "lib/net5.0-windows7.0/Nevron.Chart.WinForm.dll": {
-            "related": ".xml"
-          },
-          "lib/net5.0-windows7.0/Nevron.Chart.Wpf.dll": {
-            "related": ".xml"
-          },
-          "lib/net5.0-windows7.0/Nevron.Chart.dll": {
-            "related": ".WinForm.xml;.Wpf.xml;.xml"
-          },
-          "lib/net5.0-windows7.0/Nevron.Diagram.Shapes.dll": {
-            "related": ".xml"
-          },
-          "lib/net5.0-windows7.0/Nevron.Diagram.WinForm.dll": {
-            "related": ".xml"
-          },
-          "lib/net5.0-windows7.0/Nevron.Diagram.dll": {
-            "related": ".Shapes.xml;.WinForm.xml;.xml"
-          },
-          "lib/net5.0-windows7.0/Nevron.GraphicsGL.dll": {
-            "related": ".xml"
-          },
-          "lib/net5.0-windows7.0/Nevron.Presentation.dll": {
-            "related": ".xml"
-          },
-          "lib/net5.0-windows7.0/Nevron.System.dll": {
-            "related": ".xml"
-          }
+          "lib/net5.0-windows7.0/Nevron.Chart.WinForm.dll": {},
+          "lib/net5.0-windows7.0/Nevron.Chart.Wpf.dll": {},
+          "lib/net5.0-windows7.0/Nevron.Chart.dll": {},
+          "lib/net5.0-windows7.0/Nevron.Diagram.Shapes.dll": {},
+          "lib/net5.0-windows7.0/Nevron.Diagram.WinForm.dll": {},
+          "lib/net5.0-windows7.0/Nevron.Diagram.dll": {},
+          "lib/net5.0-windows7.0/Nevron.GraphicsGL.dll": {},
+          "lib/net5.0-windows7.0/Nevron.Presentation.dll": {},
+          "lib/net5.0-windows7.0/Nevron.System.dll": {}
         }
       },
       "runtime.linux-arm.runtime.native.System.IO.Ports/7.0.0-rc.1.22426.10": {
@@ -167,14 +127,10 @@
       "Syncfusion.Compression.Net.Core/20.3.0.47": {
         "type": "package",
         "compile": {
-          "lib/net6.0/Syncfusion.Compression.Portable.dll": {
-            "related": ".xml"
-          }
+          "lib/net6.0/Syncfusion.Compression.Portable.dll": {}
         },
         "runtime": {
-          "lib/net6.0/Syncfusion.Compression.Portable.dll": {
-            "related": ".xml"
-          }
+          "lib/net6.0/Syncfusion.Compression.Portable.dll": {}
         }
       },
       "Syncfusion.Licensing/20.3.0.47": {
@@ -193,14 +149,10 @@
           "Syncfusion.Licensing": "20.3.0.47"
         },
         "compile": {
-          "lib/net6.0/Syncfusion.XlsIO.Portable.dll": {
-            "related": ".xml"
-          }
+          "lib/net6.0/Syncfusion.XlsIO.Portable.dll": {}
         },
         "runtime": {
-          "lib/net6.0/Syncfusion.XlsIO.Portable.dll": {
-            "related": ".xml"
-          }
+          "lib/net6.0/Syncfusion.XlsIO.Portable.dll": {}
         }
       },
       "System.Drawing.Common/5.0.0": {
@@ -209,14 +161,10 @@
           "Microsoft.Win32.SystemEvents": "5.0.0"
         },
         "compile": {
-          "ref/netcoreapp3.0/System.Drawing.Common.dll": {
-            "related": ".xml"
-          }
+          "ref/netcoreapp3.0/System.Drawing.Common.dll": {}
         },
         "runtime": {
-          "lib/netcoreapp3.0/System.Drawing.Common.dll": {
-            "related": ".xml"
-          }
+          "lib/netcoreapp3.0/System.Drawing.Common.dll": {}
         },
         "runtimeTargets": {
           "runtimes/unix/lib/netcoreapp3.0/System.Drawing.Common.dll": {
@@ -235,14 +183,10 @@
           "runtime.native.System.IO.Ports": "7.0.0-rc.1.22426.10"
         },
         "compile": {
-          "lib/net6.0/System.IO.Ports.dll": {
-            "related": ".xml"
-          }
+          "lib/net6.0/System.IO.Ports.dll": {}
         },
         "runtime": {
-          "lib/net6.0/System.IO.Ports.dll": {
-            "related": ".xml"
-          }
+          "lib/net6.0/System.IO.Ports.dll": {}
         },
         "build": {
           "buildTransitive/net6.0/_._": {}
@@ -649,32 +593,35 @@
     ]
   },
   "packageFolders": {
-    "C:\\Users\\spacebek\\.nuget\\packages\\": {},
-    "C:\\Program Files (x86)\\Microsoft Visual Studio\\Shared\\NuGetPackages": {}
+    "C:\\Users\\stonx\\.nuget\\packages\\": {},
+    "C:\\Program Files (x86)\\Microsoft Visual Studio\\Shared\\NuGetPackages": {},
+    "C:\\Users\\stonx\\Documents\\NugetPackage\\nevrondotnetvision": {}
   },
   "project": {
     "version": "1.0.0",
     "restore": {
-      "projectUniqueName": "C:\\Users\\spacebek\\Documents\\GitHub\\spasticity-dashboard-v3\\SpasticityClientV2.csproj",
+      "projectUniqueName": "C:\\Users\\stonx\\Documents\\GitHub\\VRGameTest\\spasticity-dashboard-v3\\SpasticityClientV2.csproj",
       "projectName": "SpasticityClientV2",
-      "projectPath": "C:\\Users\\spacebek\\Documents\\GitHub\\spasticity-dashboard-v3\\SpasticityClientV2.csproj",
-      "packagesPath": "C:\\Users\\spacebek\\.nuget\\packages\\",
-      "outputPath": "C:\\Users\\spacebek\\Documents\\GitHub\\spasticity-dashboard-v3\\obj\\",
+      "projectPath": "C:\\Users\\stonx\\Documents\\GitHub\\VRGameTest\\spasticity-dashboard-v3\\SpasticityClientV2.csproj",
+      "packagesPath": "C:\\Users\\stonx\\.nuget\\packages\\",
+      "outputPath": "C:\\Users\\stonx\\Documents\\GitHub\\VRGameTest\\spasticity-dashboard-v3\\obj\\",
       "projectStyle": "PackageReference",
       "fallbackFolders": [
-        "C:\\Program Files (x86)\\Microsoft Visual Studio\\Shared\\NuGetPackages"
+        "C:\\Program Files (x86)\\Microsoft Visual Studio\\Shared\\NuGetPackages",
+        "C:\\Users\\stonx\\Documents\\NugetPackage\\nevrondotnetvision"
       ],
       "configFilePaths": [
-        "C:\\Users\\spacebek\\AppData\\Roaming\\NuGet\\NuGet.Config",
+        "C:\\Users\\stonx\\AppData\\Roaming\\NuGet\\NuGet.Config",
         "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.FallbackLocation.config",
-        "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.Offline.config"
+        "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.Offline.config",
+        "C:\\Program Files (x86)\\NuGet\\Config\\NevronDotNetVision.22.4.12.12.config"
       ],
       "originalTargetFrameworks": [
-        "net6.0-windows"
+        "net6.0-windows7.0"
       ],
       "sources": {
         "C:\\Program Files (x86)\\Microsoft SDKs\\NuGetPackages\\": {},
-        "C:\\Program Files\\dotnet\\library-packs": {},
+        "C:\\Users\\stonx\\Documents\\NugetPackage\\nevrondotnetvision": {},
         "https://api.nuget.org/v3/index.json": {}
       },
       "frameworks": {
@@ -720,8 +667,7 @@
           "net47",
           "net471",
           "net472",
-          "net48",
-          "net481"
+          "net48"
         ],
         "assetTargetFallback": true,
         "warn": true,
@@ -733,7 +679,7 @@
             "privateAssets": "none"
           }
         },
-        "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\6.0.401\\RuntimeIdentifierGraph.json"
+        "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\6.0.301\\RuntimeIdentifierGraph.json"
       }
     }
   }

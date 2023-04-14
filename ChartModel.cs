@@ -212,8 +212,7 @@ namespace SpasticityClientV2
 
                             foreach (var packetData in packetDatas)
                             {
-                                //Make sure it's 25 charactors long. It's same as the arduino receiver code for checking the length. This was previously compared to totalExpectedCharLength but looks like packetDatas - packetData only contains the data part anyway therefore compare to byteArrayLength
-                                //Also modify data defn to be packetData itself
+                                //Make sure it's 12 charactors long. It's same as the arduino receiver code for checking the length.
                                 if (packetData.Count == (byteArrayLength))
                                 {
                                     var data = packetData;
@@ -232,7 +231,7 @@ namespace SpasticityClientV2
                                     var FORMSB = Convert.ToByte(data[8], 16);
                                     var FORLSB = Convert.ToByte(data[9], 16);
 
-                                    //convert potentiometer edge computer angle and angvel values. 
+                                    //convert potentiometer edge compute angle and angvel values. 
                                     var POTANGLEMSB = Convert.ToByte(data[10], 16);
                                     var POTANGLELSB = Convert.ToByte(data[11], 16);
 
