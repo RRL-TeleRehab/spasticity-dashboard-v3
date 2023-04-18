@@ -21,10 +21,10 @@ namespace SpasticityClientV2
 
     public static class XBeeFunctions
     {
-        // Why need a 2 string dictionary with source 16 addresses?
+        // Get source addresses
         public static Dictionary<string, string> Source16Addresses = new Dictionary<string, string>();
 
-        // Create a list of lists of strings by following function taking packet hex data, left hex data and total expected char length
+        // ParseRFDataHex returns a list of packet payloads that can be converted back into int, float, long, etc
         public static List<List<string>> ParseRFDataHex(List<string> packetHexData, List<string> leftHexData, int totalExpectedCharLength)
         {
             // Initialize list of list of strings
@@ -41,7 +41,7 @@ namespace SpasticityClientV2
                 {
                     searchNext = false;
                     var idx = leftHexData.IndexOf("7F",searchIdx);
-                    if (idx >= 0 && leftHexData.Count > (idx+2) && leftHexData[idx+1]=="7F")
+                    if (idx >= 0 && leftHexData.Count > (idx+12) && leftHexData[idx+1]=="7F")
                     {
                         var parsedList = leftH
                             exData.GetRange(idx, 12);
@@ -70,7 +70,7 @@ namespace SpasticityClientV2
             return returnHex;
         }
 
-        // Takes hexFull and parses it into xBee packets
+        // Takes hexFull and parses it into xBee packets. Adds full packets (header+payload+delimiter) to packet list
         public static string ParsePacketHex(List<string> hexFull, List<XBeePacket> packets)
         {
             var leftHex = string.Empty;

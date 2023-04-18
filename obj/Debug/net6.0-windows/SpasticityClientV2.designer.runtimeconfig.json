@@ -12,10 +12,10 @@
       }
     ],
     "additionalProbingPaths": [
-      "C:\\Users\\mfplab\\.dotnet\\store\\|arch|\\|tfm|",
-      "C:\\Users\\mfplab\\.nuget\\packages",
+      "C:\\Users\\stonx\\.dotnet\\store\\|arch|\\|tfm|",
+      "C:\\Users\\stonx\\.nuget\\packages",
       "C:\\Program Files (x86)\\Microsoft Visual Studio\\Shared\\NuGetPackages",
-      "C:\\Program Files (x86)\\Nevron Software\\Nevron .NET Vision 2022.2\\NugetPackage\\nevrondotnetvision"
+      "C:\\Users\\stonx\\Documents\\NugetPackage\\nevrondotnetvision"
     ],
     "configProperties": {
       "Microsoft.NETCore.DotNetHostPolicy.SetAppPaths": true
