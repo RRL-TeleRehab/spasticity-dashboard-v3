@@ -279,6 +279,7 @@ namespace SpasticityClientV2
 
                                     counter++;
                                     loopIndex++;
+                                    Thread.Sleep(0);
                                 }
                             }
                         }
