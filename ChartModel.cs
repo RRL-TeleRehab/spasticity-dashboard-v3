@@ -279,7 +279,6 @@ namespace SpasticityClientV2
 
                                     counter++;
                                     loopIndex++;
-                                    Thread.Sleep(30);
                                 }
                             }
                         }
@@ -657,7 +656,6 @@ namespace SpasticityClientV2
                 };
                 process.Start();
                 // Now that the file has been created, delete contents of SessionDatas
-                // Thread.Sleep(500);
                 SessionDatas.Clear();
                 #endregion
                 }
@@ -691,7 +689,6 @@ namespace SpasticityClientV2
 
         private void materialButton3_Click(object sender, EventArgs e)
         {
-            Thread.Sleep(2000);
             SaveData();
             materialButton3.Enabled = false;
         }
