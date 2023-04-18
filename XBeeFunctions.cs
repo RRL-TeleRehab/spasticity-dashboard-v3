@@ -43,8 +43,7 @@ namespace SpasticityClientV2
                     var idx = leftHexData.IndexOf("7F",searchIdx);
                     if (idx >= 0 && leftHexData.Count > (idx+12) && leftHexData[idx+1]=="7F")
                     {
-                        var parsedList = leftH
-                            exData.GetRange(idx, 12);
+                        var parsedList = leftHexData.GetRange(idx, 12);
 
                         returnHex.Add(parsedList);
                         leftHexData.RemoveRange(idx,12);
