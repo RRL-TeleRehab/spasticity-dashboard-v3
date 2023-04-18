@@ -109,7 +109,7 @@ namespace SpasticityClientV2
 
             NAxis emgAxis = emgChart.Axis(StandardAxis.PrimaryY);
             NAxis emgXAxis = emgChart.Axis(StandardAxis.PrimaryX);
-            emgAxis.View = new NRangeAxisView(new NRange1DD(0, 350));
+            emgAxis.View = new NRangeAxisView(new NRange1DD(0, 400));
             emgAxis.ScaleConfigurator.MajorGridStyle.SetShowAtWall(ChartWallType.Back, false);
             emgAxis.ScaleConfigurator.Title.Text = "EMG (mV)";
             emgXAxis.ScaleConfigurator.OuterMajorTickStyle.Visible = false;
