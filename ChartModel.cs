@@ -203,7 +203,7 @@ namespace SpasticityClientV2
                         {
                             //Total transmitted data is [] byte long. 1 more byte should be checksum. prefixchar is the extra header due to API Mode
                             int prefixCharLength = 0;
-                            int byteArrayLength = 12;
+                            int byteArrayLength = 16;
                             int checkSumLength = 1;
                             int totalExpectedCharLength = prefixCharLength + byteArrayLength + checkSumLength;
 

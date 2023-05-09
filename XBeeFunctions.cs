@@ -41,12 +41,12 @@ namespace SpasticityClientV2
                 {
                     searchNext = false;
                     var idx = leftHexData.IndexOf("7F",searchIdx);
-                    if (idx >= 0 && leftHexData.Count >= (idx+12) && leftHexData[idx+1]=="7F")
+                    if (idx >= 0 && leftHexData.Count >= (idx+16) && leftHexData[idx+1]=="7F")
                     {
-                        var parsedList = leftHexData.GetRange(idx, 12);
+                        var parsedList = leftHexData.GetRange(idx, 16);
 
                         returnHex.Add(parsedList);
-                        leftHexData.RemoveRange(idx,12);
+                        leftHexData.RemoveRange(idx,16);
                     }
 
                     else
@@ -75,12 +75,12 @@ namespace SpasticityClientV2
             var leftHex = string.Empty;
             var isWrongStart = false;
 
-            while (hexFull.Count > 15)
+            while (hexFull.Count > 19)
             {
                 if (hexFull[0] == "7E")
                 {
                     var length = int.Parse(hexFull[1] + hexFull[2], System.Globalization.NumberStyles.HexNumber);
-                    if (length != 17)
+                    if (length != 21)
                     {
                         isWrongStart = true;
                     }
