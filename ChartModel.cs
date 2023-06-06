@@ -36,9 +36,9 @@ namespace SpasticityClientV2
 
         public ChartModel()
         {
-            //NLicense license = new NLicense("073c7566-4c00-2a00-5102-57006a01f915");
-            //NLicenseManager.Instance.SetLicense(license);
-            //NLicenseManager.Instance.LockLicense = true;
+            NLicense license = new NLicense("073c7566-4c00-2a00-5102-57006a01f915");
+            NLicenseManager.Instance.SetLicense(license);
+            NLicenseManager.Instance.LockLicense = true;
             SyncfusionLicenseProvider.RegisterLicense("NzM1MjU0QDMyMzAyZTMzMmUzMGNzTncwMXBQcUs0d3dPM1lTT0oyc1ZaVkxpTzlsZUs5eTFNTWJYZnF4L1U9");
             SyncfusionLicenseProvider.RegisterLicense("NRAiBiAaIQQuGjN/V0Z+X09EaFtFVmJLYVB3WmpQdldgdVRMZVVbQX9PIiBoS35RdERjWXZfd3dRR2NeV0V1");
             InitializeComponent();
@@ -102,14 +102,14 @@ namespace SpasticityClientV2
             //hello
             NAxis forceAxis = forceChart.Axis(StandardAxis.PrimaryY);
             NAxis forceXAxis = forceChart.Axis(StandardAxis.PrimaryX);
-            forceAxis.View = new NRangeAxisView(new NRange1DD(-10, 100));
+            forceAxis.View = new NRangeAxisView(new NRange1DD(-10, 50000));
             forceAxis.ScaleConfigurator.MajorGridStyle.SetShowAtWall(ChartWallType.Back, false);
             forceAxis.ScaleConfigurator.Title.Text = "Force (N)";
             forceXAxis.ScaleConfigurator.OuterMajorTickStyle.Visible = false;
 
             NAxis emgAxis = emgChart.Axis(StandardAxis.PrimaryY);
             NAxis emgXAxis = emgChart.Axis(StandardAxis.PrimaryX);
-            emgAxis.View = new NRangeAxisView(new NRange1DD(0, 450));
+            emgAxis.View = new NRangeAxisView(new NRange1DD(0, 50000));
             emgAxis.ScaleConfigurator.MajorGridStyle.SetShowAtWall(ChartWallType.Back, false);
             emgAxis.ScaleConfigurator.Title.Text = "EMG (mV)";
             emgXAxis.ScaleConfigurator.OuterMajorTickStyle.Visible = false;
